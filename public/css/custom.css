@@ -1,0 +1,23 @@
+.form-section {
+    /*padding-left: 15px;*/
+    /*border-left: 2px solid #FF851B;*/
+    display: none;
+}
+.form-section.current {
+    display: inherit;
+}
+.btn-info, .btn-default {
+    margin-top: 10px;
+}
+
+
+.tab-title{
+    color: #787878;
+    margin-bottom: 1.2rem;
+    text-transform: capitalize;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    text-decoration-line: underline;
+    text-decoration-style: dashed;
+}
