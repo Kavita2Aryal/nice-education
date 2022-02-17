@@ -44,6 +44,20 @@
 
     <link rel="stylesheet" href="{{myAsset('css/custom.css')}}">
 
+    <style>
+        .content {
+            display:none;
+        }
+        .preload { width:100px;
+            height: 100px;
+            position: fixed;
+            top: 50%;
+            left: 50%;}
+
+        .testSection{
+            padding: 10px;
+        }
+    </style>
     @stack('style')
 </head>
 <body class="sidebar-fixed" data-base-url="{{url('/')}}">
