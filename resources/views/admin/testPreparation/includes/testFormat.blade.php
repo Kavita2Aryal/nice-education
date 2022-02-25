@@ -5,13 +5,13 @@
 
 
     <div class="form-group col-md-12">
-        <label for="email">Title </label>
-        <input type="text" class="form-control" name="overview_title">
+        <label for="format_title">Title </label>
+        <input id="format_title" type="text" class="form-control" name="format_title" value="{{ old('format_title') }}" required>
     </div>
 
     <div class="form-group col-md-12">
-        <label for="summernoteEditor">Description </label>
-        <textarea name="overview_description" id="summernoteEditor4" cols="30" rows="5"></textarea>
+        <label for="summernoteEditor4">Description </label>
+        <textarea name="format_description" id="summernoteEditor4" cols="30" rows="5" required>{!! old('format_description') !!}</textarea>
     </div>
 
 
@@ -27,20 +27,17 @@
 
 
     <div class="form-group col-md-6 testSection" style="background-color: #FAFAFA">
-        <label for="email">Reading </label>
+        <label>Reading </label>
         <br>
-        <label for="email"> Description Of Reading Pattern </label>
-        <textarea name="course_description[]" id="summernoteEditor5" class="form-control" cols="30" rows="5"></textarea>
-
-
+        <label> Description Of Reading Pattern </label>
+        <textarea name="reading_pattern" id="summernoteEditor5" class="form-control" cols="30" rows="5"></textarea>
     </div>
 
     <div class="form-group col-md-6 testSection" style="background-color: #FAFAFA">
-
-        <label for="email"> Listening </label>
+        <label> Listening </label>
         <br>
-        <label for="email"> Description Of Listening Pattern </label>
-        <textarea name="course_description[]" id="summernoteEditor6" class="form-control" cols="30" rows="5"> </textarea>
+        <label> Description Of Listening Pattern </label>
+        <textarea name="listening_pattern" id="summernoteEditor6" class="form-control" cols="30" rows="5"> </textarea>
     </div>
 
 </div>
@@ -49,20 +46,17 @@
 <div class="row">
 
     <div class="form-group col-md-6 testSection" style="background-color: #FAFAFA">
-        <label for="email"> Writing </label>
+        <label> Writing </label>
         <br>
-        <label for="email"> Description Of Writing Pattern </label>
-        <textarea name="course_description[]" id="summernoteEditor7" class="form-control" cols="30" rows="5"></textarea>
-
-
+        <label> Description Of Writing Pattern </label>
+        <textarea name="writing_pattern" id="summernoteEditor7" class="form-control" cols="30" rows="5"></textarea>
     </div>
 
     <div class="form-group col-md-6 testSection" style="background-color: #FAFAFA">
-
         <label for="email"> Speaking </label>
         <br>
         <label for="email"> Description Of Speaking Pattern </label>
-        <textarea name="course_description[]" id="summernoteEditor8" class="form-control" cols="30" rows="5"></textarea>
+        <textarea name="speaking_pattern" id="summernoteEditor8" class="form-control" cols="30" rows="5"></textarea>
     </div>
 
 </div>

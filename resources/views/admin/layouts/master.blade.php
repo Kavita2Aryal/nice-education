@@ -27,37 +27,13 @@
 
     @stack('plugin-styles')
 
-    <style>
-        .parsley{
-            color: #ff4747 !important;
-            font-size: 12px;
-        }
-        .card-header{
-            color: #666666;
-            font-weight: bold;
-        }
-    </style>
-
 <!-- common css -->
     <link rel="stylesheet" href="{{adminAssetsUrl('css/app.css')}}">
 <!-- end common css -->
 
     <link rel="stylesheet" href="{{myAsset('css/custom.css')}}">
 
-    <style>
-        .content {
-            display:none;
-        }
-        .preload { width:100px;
-            height: 100px;
-            position: fixed;
-            top: 50%;
-            left: 50%;}
 
-        .testSection{
-            padding: 10px;
-        }
-    </style>
     @stack('style')
 </head>
 <body class="sidebar-fixed" data-base-url="{{url('/')}}">

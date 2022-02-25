@@ -1,6 +1,5 @@
 .form-section {
-    /*padding-left: 15px;*/
-    /*border-left: 2px solid #FF851B;*/
+
     display: none;
 }
 .form-section.current {
@@ -20,4 +19,32 @@
     text-align: center;
     text-decoration-line: underline;
     text-decoration-style: dashed;
+}
+
+/**  Preloader **/
+.content {
+    display:none;
+}
+.preload { width:100px;
+    height: 100px;
+    position: fixed;
+    top: 50%;
+    left: 50%;}
+
+.testSection{
+    padding: 10px;
+}
+
+.required {
+    color: #ff4747 !important;
+}
+
+
+.parsley{
+    color: #ff4747 !important;
+    font-size: 12px;
+}
+.card-header{
+    color: #666666;
+    font-weight: bold;
 }

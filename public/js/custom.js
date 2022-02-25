@@ -1,13 +1,10 @@
 $(function () {
-
     //loader before page load
-    $(".preload").fadeOut(1000, function() {
+    $(".preload").fadeOut(800, function() {
         $(".content").fadeIn(500);
     });
 
-
     $('#parsleyValidationForm').parsley();
-
 
     /*Summernote editor*/
     if ($("#summernoteEditor").length) {
@@ -95,51 +92,6 @@ $(function () {
 
 $(document).ready(function(){
 
-    ////   for overview tab
-    $('#summernoteEditor2').summernote({
-        height: 150,
-    });
-    //Add item
-    $(".addTest").click(function(){
-        var $fieldHTML = $('<div>',
-            {
-                'html': $("#clone").html()
-            });
-        // insert new group after last one
-        $('.appendHere').append($fieldHTML);
-        // instantiate ckeditor on new textarea
-
-        $fieldHTML.find('input').attr("required","");
-        $fieldHTML.find('textarea').attr("required","");
-
-    });
-    //remove content
-    $("body").on("click",".remove-section",function(){
-        event.preventDefault();
-        $(this).closest('.row').parent().remove();
-    });
-
-
-    ////   for preparation tab
-
-    $('#summernoteEditor3').summernote({
-        height: 150,
-    });
-
-    $(".addBook").click(function(){
-        var $fieldHTML = $('<div>',
-            {
-                'html': $("#cloneBook").html()
-            });
-        // insert new group after last one
-        $('.appendHere').append($fieldHTML);
-        // instantiate ckeditor on new textarea
-
-        $fieldHTML.find('input').attr("required","");
-        $fieldHTML.find('textarea').attr("required","");
-
-    });
-
 
     // for format tab
     $('#summernoteEditor4').summernote({
@@ -164,25 +116,6 @@ $(document).ready(function(){
     $('#summernoteEditor9').summernote({
         height: 150,
     });
-
-    $('#summernoteEditor10').summernote({
-        height: 150,
-    });
-
-    $(".addFaq").click(function(){
-        var $fieldHTML = $('<div>',
-            {
-                'html': $("#cloneFaq").html()
-            });
-        // insert new group after last one
-        $('.appendHereFaq').append($fieldHTML);
-        // instantiate ckeditor on new textarea
-
-        $fieldHTML.find('input').attr("required","");
-        $fieldHTML.find('textarea').attr("required","");
-
-    });
-
 
 });
 

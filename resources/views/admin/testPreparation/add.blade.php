@@ -101,16 +101,7 @@
                                                     <div class="col-sm-12">
                                                         <div class="form-group label-floating">
                                                             <label class="control-label"></label>
-                                                            <textarea name="description[]" rows="20" {{-- data-parsley-trigger="keyup" required="" --}} {{--
-                        data-parsley-errors-container="#cell-phone-validation-error-block" --}} {{--
-                        data-parsley-error-message="This field is required" --}}>
-                      {{isset($course)? $course->description : old('description')}}
-                    </textarea>
-
-
-                                                            {{-- <div class="margin-top10" id="cell-phone-validation-error-block"></div> --}}
-
-
+                                                            <textarea name="description[]" rows="20" ></textarea>
                                                         </div>
                                                     </div>
                                                 </div>

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Frontend\WebsiteController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,9 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+
+Route::get('/',[WebsiteController::class,'index']);
+Route::get('about-us',[WebsiteController::class,'aboutUs'])->name('aboutUs');
+Route::get('contact-us',[WebsiteController::class,'contactUs'])->name('contactUs');
+Route::get('our-services',[WebsiteController::class,'ourServices'])->name('ourServices');
+Route::get('test-preparation',[WebsiteController::class,'testPreparation'])->name('testPreparation');
+Route::get('study-abroad',[WebsiteController::class,'studyAbroad'])->name('studyAbroad');
 
 Auth::routes();
 
