@@ -24,17 +24,10 @@
         <section class="appoint">
             <div class="container">
                 <h2 class="title--section text-center mb-4 mb-xl-5">
-                    <span>Schedule an Appointment</span>
+                    <span>{{$contact_us->title_for_contact_us}}</span>
                     <span class="title--indicator indi-center"></span>
                 </h2>
-                <p>
-                    Please complete this form to talk to an Advisor at Edwise Foundation.
-                    You can ask any questions relating to the application process,
-                    universities, majors, costs, funding (scholarship, TA/RA), F-1
-                    interview, etc. Please note that we can work with any universities for
-                    you as long as you fit in well in respect to your academic interests and
-                    financial capacity.
-                </p>
+                {!! $contact_us->description_for_contact_us !!}
             </div>
         </section>
 

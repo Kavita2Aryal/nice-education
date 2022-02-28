@@ -118,7 +118,8 @@ class TestPreparationController extends CommonController
             foreach ($question as $key => $datum) {
                 if ($datum != null)
                 {
-                    $faq['test_preparation_id'] = 1;
+                    $faq['type'] = "test";
+                    $faq['type_id'] = 1;
                     $faq['question'] = $question[$key];
                     $faq['answer'] = $answer[$key];
                     $this->testPreparationFaqService->store($faq);

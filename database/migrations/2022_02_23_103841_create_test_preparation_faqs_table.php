@@ -15,7 +15,8 @@ class CreateTestPreparationFaqsTable extends Migration
     {
         Schema::create('test_preparation_faqs', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('test_preparation_id');
+            $table->enum('type',['test','study'])->comment("test => test preparation table , study => study country table");
+            $table->unsignedBigInteger('type_id');
             $table->string('question');
             $table->text('answer');
             $table->timestamps();

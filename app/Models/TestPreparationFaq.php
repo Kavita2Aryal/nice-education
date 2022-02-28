@@ -15,8 +15,9 @@ class TestPreparationFaq extends Model implements ImageableContract
     protected $guarded = ['id'];
 
     public $columnsWithTypes = [
-        'test_preparation_id'   => 'string',
-        'question'              => 'string',
-        'answer'           => 'string',
+        'type'      =>'string',
+        'type_id'   => 'string',
+        'question'  => 'string',
+        'answer'    => 'string',
     ];
 }

@@ -39,11 +39,10 @@ class CreateTestPreparationsTable extends Migration
 
             $table->string('format_title',200);
             $table->text('format_description',200);
-            $table->string('reading_pattern',200)->nullable();
-            $table->string('listening_pattern',200)->nullable();
-            $table->string('writing_pattern',200)->nullable();
-            $table->string('speaking_pattern',200)->nullable();
-
+            $table->text('reading_pattern',200)->nullable();
+            $table->text('listening_pattern',200)->nullable();
+            $table->text('writing_pattern',200)->nullable();
+            $table->text('speaking_pattern',200)->nullable();
 
             $table->boolean('status')->default(0);
             $table->timestamps();

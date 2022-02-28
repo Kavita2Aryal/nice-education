@@ -29,6 +29,9 @@ class CreateCompaniesTable extends Migration
             $table->string('linkedin_url')->nullable();
             $table->string('whatsapp_number')->nullable();
             $table->text('map_url')->nullable();
+
+            $table->string('title_for_contact_us')->nullable();
+            $table->text('description_for_contact_us')->nullable();
             $table->timestamps();
         });
     }
