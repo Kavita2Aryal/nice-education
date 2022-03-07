@@ -39,7 +39,7 @@ class PageController extends CommonController
      */
     public function create()
     {
-        return view('admin.page.create');
+        return view('admin.page.create',$this->website);
     }
 
     /**
@@ -116,7 +116,7 @@ class PageController extends CommonController
      */
     public function destroy($id)
     {
-        $slider = $this->pageService->delete($id);
+        $page = $this->pageService->delete($id);
 
         return response('success');
     }

@@ -7,24 +7,20 @@
             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                 <div class="foot__item">
                     <div class="foot__title">
-                        <h4>Nice Education Consultancy</h4>
+                        <h4>{{$company->name}}</h4>
                     </div>
-                    <p>
-                        Nice Education Consultancy Pvt. Ltd. is an experienced professional
-                        in Abroad Study Field and has vast knowledge in the respected field.
-                        If you are here than you are in the most successful consultant.
-                    </p>
+                   <p> {!! $company->footer_text !!} </p>
                 </div>
                 <div class="foot__item">
                     <div class="foot__title">
                         <h4>Get in Touch</h4>
                     </div>
                     <p>
-                        Dillibazar, Kathmandu<br />
-                        Phone: +977-1-4417471 <br />
-                        Mobile: 9851126739 | 9841627298 | 9851000715
-                        <br />
-                        Email: info@niceeducation.com.np
+                        {{$company->address}}<br />
+                        @if($company->phone != null) Phone: {{$company->phone}} <br /> @endif
+                        @if($company->mobile != null) Mobile: {{$company->mobile}}
+                        <br />@endif
+                        Email: {{$company->email}}
                     </p>
                 </div>
             </div>
@@ -36,13 +32,9 @@
                     </div>
                     <div class="foot__links">
                         <ul>
-                            <li><a href="#!">Career Counseling</a></li>
-                            <li><a href="#!">Documentation Guidance</a></li>
-                            <li><a href="#!">Universities Selection </a></li>
-                            <li><a href="#!">Visa Assistance </a></li>
-                            <li><a href="#!">Interview Assistance</a></li>
-                            <li><a href="#!">Finance Assistance</a></li>
-                            <li><a href="#!">Travel Arrangement </a></li>
+                            @foreach($services as $service)
+                            <li><a href="{{route('serviceDetail',['id'=>$service->id,'slug'=>$service->slug])}}"> {{$service->name}}</a></li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
@@ -55,12 +47,9 @@
                     </div>
                     <div class="foot__links">
                         <ul>
-                            <li><a href="#!">Australia</a></li>
-                            <li><a href="#!">USA</a></li>
-                            <li><a href="#!">Canada </a></li>
-                            <li><a href="#!">Japan </a></li>
-                            <li><a href="#!">New Zeland</a></li>
-                            <li><a href="#!">Europe</a></li>
+                            @foreach($countries as $country)
+                            <li><a href="#!">{{$country->country_name}}</a></li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
@@ -73,11 +62,9 @@
                     </div>
                     <div class="foot__links">
                         <ul>
-                            <li><a href="#!">TOFEL </a></li>
-                            <li><a href="#!">IELTS </a></li>
-                            <li><a href="#!">GMAT </a></li>
-                            <li><a href="#!">GRE </a></li>
-                            <li><a href="#!">SAT </a></li>
+                            @foreach($test_preparations as $test_prep)
+                            <li><a href="{{route('testPreparation',['id'=>$test_prep->id,'slug'=>$test_prep->slug])}}">{{$test_prep->title}} </a></li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
@@ -90,14 +77,9 @@
                     </div>
                     <div class="foot__links">
                         <ul>
-                            <li><a href="#!">Sourthern Acedemy </a></li>
-                            <li><a href="#!">Skyline Internatinal College </a></li>
-                            <li><a href="#!">Ashland University </a></li>
-                            <li><a href="#!">BCA International College </a></li>
-                            <li><a href="#!">Troy University </a></li>
-                            <li><a href="#!">Wentworth Institute </a></li>
-                            <li><a href="#!">Sydney City </a></li>
-                            <li><a href="#!">IIBIT </a></li>
+                            @foreach($universities as $university)
+                            <li><a href="#!">{{$university->name}} </a></li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
@@ -107,18 +89,29 @@
         <div class="lower__row">
             <div class="social">
                 <ul>
+                    @if($company->facebook_url != null)
                     <li>
-                        <a href="#!"><i class="bi bi-facebook"></i></a>
+                        <a href="{{$company->facebook_url}}" target="_blank"><i class="bi bi-facebook"></i></a>
                     </li>
+                    @endif
+
+                    @if($company->instagram_url != null)
                     <li>
-                        <a href="#!"><i class="bi bi-instagram"></i></a>
+                        <a href="{{$company->instagram_url}}" target="_blank"><i class="bi bi-instagram"></i></a>
                     </li>
+                    @endif
+
+                    @if($company->linkedin_url != null)
                     <li>
-                        <a href="#!"><i class="bi bi-linkedin"></i></a>
+                        <a href="{{$company->linkedin_url}}" target="_blank" ><i class="bi bi-linkedin"></i></a>
                     </li>
+                    @endif
+
+                    @if($company->whatsapp_number != null)
                     <li>
-                        <a href="#!"><i class="bi bi-whatsapp"></i></a>
+                        <a href="https://wa.me/{{$company->whatsapp_number}}" target="_blank"><i class="bi bi-whatsapp"></i></a>
                     </li>
+                    @endif
                 </ul>
             </div>
             <div class="design">

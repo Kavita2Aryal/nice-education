@@ -51,4 +51,24 @@ class TestPreparation extends Model implements ImageableContract , FileableContr
         'status'             => 'boolean',
     ];
 
+    public function getDocumentAttribute($value)
+    {
+        return asset('storage/files/test-preparation/documents/'.$value);
+    }
+
+    public function exams()
+    {
+        return $this->hasMany(TestExam::class,'test_preparation_id');
+    }
+
+    public function books()
+    {
+        return $this->hasMany(PreparationBook::class,'test_preparation_id')->latest()->limit(2);
+    }
+
+    public function faqs()
+    {
+        return $this->hasMany(TestPreparationFaq::class,'type_id')->where('type','test');
+    }
+
 }

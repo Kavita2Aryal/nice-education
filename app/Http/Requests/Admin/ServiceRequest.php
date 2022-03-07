@@ -24,10 +24,13 @@ class ServiceRequest extends FormRequest
     public function rules()
     {
         return [
-            'banner_image'=> 'bail|nullable|file|max:2048|mimes:png,jpg,jpeg,webp',
-            'title'=>'required',
-            'slug' =>'required',
-            'description' =>'required',
+            'image'=> 'bail|nullable|file|max:2048|mimes:png,jpg,jpeg,webp',
+            'name'=>'required|string',
+            'slug' =>'required|string',
+            'title'=>'required|string',
+            'description' =>'required|string',
+            'priority' => 'required',
+            'status' => 'bail|required|in:true,false,0,1',
         ];
     }
 }

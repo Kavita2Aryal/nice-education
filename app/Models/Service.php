@@ -15,11 +15,12 @@ class Service extends Model implements ImageableContract
     protected $guarded = ['id'];
 
     public $columnsWithTypes = [
-        'parent_id' => 'string',
-        'title'            => 'string',
+        'image'            => 'image',
+        'name'             => 'string',
         'slug'             => 'string',
-        'banner_image'     => 'image',
+        'title'            => 'string',
         'description'      => 'string',
+        'priority'         => 'string',
         'status'           => 'boolean',
 
     ];

@@ -37,7 +37,7 @@ class ServiceController extends CommonController
      */
     public function create()
     {
-        return view('admin.service.create');
+        return view('admin.service.create',$this->website);
 
     }
 
@@ -50,24 +50,10 @@ class ServiceController extends CommonController
     public function store(ServiceRequest $request)
     {
         $data = $request->validated();
-        if ($request->status)
-        {
-            $data['status'] = $request->status;
-        }
         $service = $this->educationServicesService->store($data);
         return  redirect(route('service.index'))->with('success','Service Created Successfully');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -112,6 +98,8 @@ class ServiceController extends CommonController
      */
     public function destroy($id)
     {
-        //
+        $service = $this->educationServicesService->delete($id);
+
+        return response('success');
     }
 }

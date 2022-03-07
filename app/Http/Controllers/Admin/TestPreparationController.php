@@ -60,7 +60,8 @@ class TestPreparationController extends CommonController
      */
     public function create()
     {
-        return view('admin.testPreparation.create');
+
+        return view('admin.testPreparation.create',$this->website);
     }
 
     /**
@@ -119,7 +120,7 @@ class TestPreparationController extends CommonController
                 if ($datum != null)
                 {
                     $faq['type'] = "test";
-                    $faq['type_id'] = 1;
+                    $faq['type_id'] = $test_preparation->id;
                     $faq['question'] = $question[$key];
                     $faq['answer'] = $answer[$key];
                     $this->testPreparationFaqService->store($faq);

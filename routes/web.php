@@ -24,7 +24,8 @@ Route::get('contact-us',[WebsiteController::class,'contactUs'])->name('contactUs
 Route::post('enquiry',[WebsiteController::class,'enquiry'])->name('enquiry');
 
 Route::get('our-services',[WebsiteController::class,'ourServices'])->name('ourServices');
-Route::get('test-preparation',[WebsiteController::class,'testPreparation'])->name('testPreparation');
+Route::get('our-services/{id}/{slug}',[WebsiteController::class,'serviceDetail'])->name('serviceDetail');
+Route::get('test-preparation/{id}/{slug}',[WebsiteController::class,'testPreparation'])->name('testPreparation');
 
 Route::get('study-abroad',[WebsiteController::class,'studyAbroad'])->name('studyAbroad');
 

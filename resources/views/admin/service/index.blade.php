@@ -19,7 +19,7 @@
                                             <th>#</th>
                                             <th>Image</th>
                                             <th>Title</th>
-                                            <th>Created At</th>
+                                            <th>Priority</th>
                                             <th>Actions</th>
                                         </tr>
                                         </thead>
@@ -27,10 +27,10 @@
                                         @foreach($services as $key => $service)
                                             <tr>
                                                 <td>{{++$key}}</td>
-                                                <td><img src="{{$service->banner_image}}" alt=""></td>
+                                                <td><img src="{{$service->image}}" alt=""></td>
                                                 <td>{{$service->title}}</td>
                                                 <td>
-                                                    {{$service->created_at->format('d-M-Y')}}
+                                                    {{$service->priority}}
                                                 </td>
                                                 <td>
                                                     <a  class="btn btn-sm  btn-outline-success" href="{{route('service.edit',$service->id)}}" title="Edit" ><i class="mdi mdi-lead-pencil"></i></a>
@@ -73,7 +73,7 @@
             }).then(function () {
 
                 $.ajax({
-                    url:'/admin/page' + '/' + id,
+                    url:'/admin/service' + '/' + id,
                     type : "POST",
                     data : {'_method' : 'DELETE', '_token' : csrf_token},
 

@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <title> @yield('title')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="shortcut icon" href="{{asset('frontend/images/logo.png')}}" type="image/x-icon" />
+    <link rel="shortcut icon" href="{{asset('storage/images/company/fav_icons/'.$company->fav_icon)}}" type="image/x-icon" />
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -37,6 +37,7 @@
     ></script>
 </head>
 <body>
+
 @include('website.layouts.header')
     @yield('content')
 @include('website.layouts.footer')

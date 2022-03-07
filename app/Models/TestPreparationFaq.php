@@ -2,15 +2,12 @@
 
 namespace App\Models;
 
-use App\Custom\Contracts\ImageableContract;
-use App\Custom\Traits\Imageable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class TestPreparationFaq extends Model implements ImageableContract
+class TestPreparationFaq extends Model
 {
     use HasFactory;
-    use Imageable;
 
     protected $guarded = ['id'];
 

@@ -11,48 +11,60 @@
             <div class="col-md-3 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <p class="card-title text-md-center text-xl-left">Number of Meetings</p>
+                        <p class="card-title text-md-center text-xl-left"> Recent Visa Acceptance </p>
                         <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                            <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">34040</h3>
-                            <i class="ti-calendar icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
+                            <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">3</h3>
+                            <i class="ti-settings menu-icon icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                         </div>
-                        <p class="mb-0 mt-2 text-warning">2.00% <span class="text-black ml-1"><small>(30 days)</small></span></p>
+                        <hr>
+                        <a href="{{ route('visa-acceptance.index') }}" style="text-decoration: none">
+                        <p class="mb-0 mt-2 text-warning text-center font-weight-bolder"> <i class="icon-eye"></i>  View All</p>
+                        </a>
                     </div>
                 </div>
             </div>
             <div class="col-md-3 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <p class="card-title text-md-center text-xl-left">Number of Clients</p>
+                        <p class="card-title text-md-center text-xl-left"> Universities</p>
                         <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                            <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">47033</h3>
-                            <i class="ti-user icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
+                            <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">3</h3>
+                            <i class="icon-graduation menu-icon icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                         </div>
-                        <p class="mb-0 mt-2 text-danger">0.22% <span class="text-black ml-1"><small>(30 days)</small></span></p>
+                        <hr>
+                        <a href="{{ route('university.index') }}" style="text-decoration: none">
+                            <p class="mb-0 mt-2 text-warning text-center font-weight-bolder"> <i class="icon-eye"></i>  View All</p>
+                        </a>
                     </div>
                 </div>
             </div>
             <div class="col-md-3 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <p class="card-title text-md-center text-xl-left">Today’s Bookings</p>
+                        <p class="card-title text-md-center text-xl-left">Test Preparation</p>
                         <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                            <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">40016</h3>
-                            <i class="ti-agenda icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
+                            <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">4</h3>
+                            <i class="icon-note menu-icon icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                         </div>
-                        <p class="mb-0 mt-2 text-success">10.00%<span class="text-black ml-1"><small>(30 days)</small></span></p>
+                        <hr>
+                        <a href="{{ route('test-preparation.index') }}" style="text-decoration: none">
+                        <p class="mb-0 mt-2 text-warning text-center font-weight-bolder"> <i class="icon-eye"></i>  View All</p>
+                        </a>
                     </div>
                 </div>
             </div>
             <div class="col-md-3 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <p class="card-title text-md-center text-xl-left">Total Items Bookings</p>
+                        <p class="card-title text-md-center text-xl-left">Today's Enquiry</p>
                         <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                            <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">61344</h3>
-                            <i class="ti-layers-alt icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
+                            <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">2</h3>
+                            <i class="icon-speech menu-icon icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                         </div>
-                        <p class="mb-0 mt-2 text-success">22.00%<span class="text-black ml-1"><small>(30 days)</small></span></p>
+                        <hr>
+                        <a href="{{ route('enquiry.index') }}" style="text-decoration: none">
+                            <p class="mb-0 mt-2 text-warning text-center font-weight-bolder"> <i class="icon-eye"></i>  View All</p>
+                        </a>
                     </div>
                 </div>
             </div>

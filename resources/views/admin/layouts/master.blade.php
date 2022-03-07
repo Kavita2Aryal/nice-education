@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="{{adminAssetsUrl('plugins/summernote/summernote-bs4.css')}}">
     <link rel="stylesheet" href="{{adminAssetsUrl('plugins/dropify/css/dropify.min.css')}}">
     <link rel="stylesheet" href="{{adminAssetsUrl('plugins/datatables.net-bs4/css/dataTables.bootstrap4.css')}}">
+    <link rel="stylesheet" href="{{adminAssetsUrl('plugins/select2/css/select2.min.css')}}">
 
     @stack('plugin-styles')
 
@@ -63,6 +64,7 @@
 <script src="{{adminAssetsUrl('plugins/datatables.net/jquery.dataTables.min.js')}}"></script>
 <script src="{{adminAssetsUrl('plugins/datatables.net-bs4/js/dataTables.bootstrap4.js')}}"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="{{adminAssetsUrl('plugins/select2/js/select2.min.js')}}"></script>
 
 @stack('plugin-scripts')
 <!-- end plugin js -->
@@ -90,6 +92,8 @@
 <!-- end Parsley Validation -->
 <script src="{{adminAssetsUrl('js/dropify.js')}}"></script>
 <script src="{{myAsset('js/custom.js')}}"></script>
+<script src="{{adminAssetsUrl('js/select2.js')}}"></script>
+
 <script>
     @if(Session::has('success'))
     Toast.fire({

@@ -1,7 +1,7 @@
 
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
   <ul class="nav">
-    <li class="nav-item {{ active_class(['/']) }}">
+    <li class="nav-item {{ active_class(['/admin/v1']) }}">
       <a class="nav-link" href="{{ route('admin.dashboard') }}">
           <i class="ti-palette menu-icon"></i>
         <span class="menu-title">Dashboard</span>
@@ -18,11 +18,11 @@
           <div class="collapse {{ show_class(['basic-ui/*']) }}" id="settings">
               <ul class="nav flex-column sub-menu">
                   <li class="nav-item {{ active_class(['basic-ui/accordions']) }}">
-                      <a class="nav-link" href="{{ url('/basic-ui/accordions') }}">Manage Website</a>
+                      <a class="nav-link" href="{{ route('manageWebsite') }}">Manage Website</a>
                   </li>
 
                   <li class="nav-item {{ active_class(['basic-ui/progress-bar']) }}">
-                      <a class="nav-link" href="{{ url('/basic-ui/progress-bar') }}">Slider</a>
+                      <a class="nav-link" href="{{ route('manageBanner') }}">Homepage Banner</a>
                   </li>
               </ul>
           </div>
@@ -62,31 +62,45 @@
                   <li class="{{ \Illuminate\Support\Facades\Request::is('admin/service/create') ? 'nav-item active' : 'nav-item' }}">
                       <a class="nav-link" href="{{ route('service.create') }}">Add Service</a>
                   </li>
+                  <li class="{{ \Illuminate\Support\Facades\Request::is('admin/service/create') ? 'nav-item active' : 'nav-item' }}">
+                      <a class="nav-link" href="{{ route('howItWork') }}">How It Works</a>
+                  </li>
+                  <li class="{{ \Illuminate\Support\Facades\Request::is('admin/service/create') ? 'nav-item active' : 'nav-item' }}">
+                      <a class="nav-link" href="{{ route('document-required.index') }}">Document Required</a>
+                  </li>
+
+                  <li class="{{ \Illuminate\Support\Facades\Request::is('admin/service/create') ? 'nav-item active' : 'nav-item' }}">
+                      <a class="nav-link" href="{{ route('manageVisaAcceptanceContent') }}">Visa Service Content</a>
+                  </li>
               </ul>
           </div>
       </li>
 
 
     <!--------------  Study In Country ------------------------------------------------------------>
-{{--      <li class="nav-item {{ active_class(['basic-ui/*']) }}">--}}
-{{--          <a class="nav-link" data-toggle="collapse" href="#countries" aria-expanded="{{ is_active_route(['basic-ui/*']) }}" aria-controls="basic-ui">--}}
+      <li class="nav-item {{ active_class(['basic-ui/*']) }}">
+          <a class="nav-link" data-toggle="collapse" href="#countries" aria-expanded="{{ is_active_route(['basic-ui/*']) }}" aria-controls="basic-ui">
 
-{{--              <i class="icon-book-open menu-icon"></i>--}}
-{{--              <span class="menu-title"> Study In Country</span>--}}
-{{--              <i class="menu-arrow"></i>--}}
-{{--          </a>--}}
-{{--          <div class="collapse {{ show_class(['basic-ui/*']) }}" id="countries">--}}
-{{--              <ul class="nav flex-column sub-menu">--}}
-{{--                  <li class="nav-item {{ active_class(['basic-ui/accordions']) }}">--}}
-{{--                      <a class="nav-link" href="{{ url('/basic-ui/accordions') }}">Manage Country</a>--}}
-{{--                  </li>--}}
+              <i class="icon-book-open menu-icon"></i>
+              <span class="menu-title"> Study Abroad</span>
+              <i class="menu-arrow"></i>
+          </a>
+          <div class="collapse {{ show_class(['basic-ui/*']) }}" id="countries">
+              <ul class="nav flex-column sub-menu">
+                  <li class="nav-item {{ active_class(['basic-ui/accordions']) }}">
+                      <a class="nav-link" href="{{ route('study-abroad.index') }}">Manage Country</a>
+                  </li>
 
-{{--                  <li class="nav-item {{ active_class(['basic-ui/progress-bar']) }}">--}}
-{{--                      <a class="nav-link" href="{{ url('/basic-ui/progress-bar') }}">Add Country</a>--}}
-{{--                  </li>--}}
-{{--              </ul>--}}
-{{--          </div>--}}
-{{--      </li>--}}
+                  <li class="nav-item {{ active_class(['basic-ui/progress-bar']) }}">
+                      <a class="nav-link" href="{{ route('study-abroad.create') }}">Add Country</a>
+                  </li>
+
+                  <li class="nav-item {{ active_class(['basic-ui/progress-bar']) }}">
+                      <a class="nav-link" href="{{ route('course.index') }}">Manage Course</a>
+                  </li>
+              </ul>
+          </div>
+      </li>
 
       <!------------   Test Preparation --------------------------------------------------------------->
       <li class="nav-item">
@@ -154,56 +168,56 @@
 {{--      </li>--}}
 
       <!------------- COLLEGE AND UNIVERSITIES ------>
-{{--      <li class="nav-item {{ active_class(['basic-ui/*']) }}">--}}
-{{--          <a class="nav-link" data-toggle="collapse" href="#college" aria-expanded="{{ is_active_route(['basic-ui/*']) }}" aria-controls="basic-ui">--}}
+      <li class="nav-item {{ active_class(['basic-ui/*']) }}">
+          <a class="nav-link" data-toggle="collapse" href="#college" aria-expanded="{{ is_active_route(['basic-ui/*']) }}" aria-controls="basic-ui">
 
-{{--              <i class="icon-graduation menu-icon"></i>--}}
-{{--              <span class="menu-title "> College/University</span>--}}
-{{--              <i class="menu-arrow"></i>--}}
-{{--          </a>--}}
-{{--          <div class="collapse {{ show_class(['basic-ui/*']) }}" id="college">--}}
-{{--              <ul class="nav flex-column sub-menu">--}}
-{{--                  <li class="nav-item {{ active_class(['basic-ui/accordions']) }}">--}}
-{{--                      <a class="nav-link" href="{{ url('/basic-ui/accordions') }}">Manage College/University</a>--}}
-{{--                  </li>--}}
+              <i class="icon-graduation menu-icon"></i>
+              <span class="menu-title ">University</span>
+              <i class="menu-arrow"></i>
+          </a>
+          <div class="collapse {{ show_class(['basic-ui/*']) }}" id="college">
+              <ul class="nav flex-column sub-menu">
+                  <li class="nav-item {{ active_class(['basic-ui/accordions']) }}">
+                      <a class="nav-link" href="{{ route('university.index') }}">Manage University</a>
+                  </li>
 
-{{--                  <li class="nav-item {{ active_class(['basic-ui/progress-bar']) }}">--}}
-{{--                      <a class="nav-link" href="{{ url('/basic-ui/progress-bar') }}">Add College/University</a>--}}
-{{--                  </li>--}}
-{{--              </ul>--}}
-{{--          </div>--}}
-{{--      </li>--}}
+                  <li class="nav-item {{ active_class(['basic-ui/progress-bar']) }}">
+                      <a class="nav-link" href="{{ route('university.create') }}">Add University</a>
+                  </li>
+              </ul>
+          </div>
+      </li>
 
     <!----------------------- MESSAGE ------------------------------------------------->
-{{--      <li class="nav-item">--}}
-{{--          <a class="nav-link" href="{{ route('admin.dashboard') }}">--}}
-{{--              <i class="icon-speech menu-icon"></i>--}}
-{{--              <span class="menu-title">Messages</span>--}}
+      <li class="nav-item">
+          <a class="nav-link" href="{{ route('enquiry.index') }}">
+              <i class="icon-speech menu-icon"></i>
+              <span class="menu-title">Messages</span>
 
-{{--          </a>--}}
-{{--      </li>--}}
+          </a>
+      </li>
 
     <!----------------------- TEAM ------------------------------------------------->
 
-{{--      <li class="nav-item {{ active_class(['basic-ui/*']) }}">--}}
-{{--          <a class="nav-link" data-toggle="collapse" href="#testimonials" aria-expanded="{{ is_active_route(['basic-ui/*']) }}" aria-controls="basic-ui">--}}
+      <li class="nav-item {{ active_class(['basic-ui/*']) }}">
+          <a class="nav-link" data-toggle="collapse" href="#testimonials" aria-expanded="{{ is_active_route(['basic-ui/*']) }}" aria-controls="basic-ui">
 
-{{--              <i class="icon-people menu-icon"></i>--}}
-{{--              <span class="menu-title"> Team</span>--}}
-{{--              <i class="menu-arrow"></i>--}}
-{{--          </a>--}}
-{{--          <div class="collapse {{ show_class(['basic-ui/*']) }}" id="testimonials">--}}
-{{--              <ul class="nav flex-column sub-menu">--}}
-{{--                  <li class="nav-item {{ active_class(['basic-ui/accordions']) }}">--}}
-{{--                      <a class="nav-link" href="{{ url('/basic-ui/accordions') }}">Manage Team</a>--}}
-{{--                  </li>--}}
+              <i class="icon-people menu-icon"></i>
+              <span class="menu-title"> Team</span>
+              <i class="menu-arrow"></i>
+          </a>
+          <div class="collapse {{ show_class(['basic-ui/*']) }}" id="testimonials">
+              <ul class="nav flex-column sub-menu">
+                  <li class="nav-item {{ active_class(['basic-ui/accordions']) }}">
+                      <a class="nav-link" href="{{route('team.index')}}">Manage Team</a>
+                  </li>
 
-{{--                  <li class="nav-item {{ active_class(['basic-ui/progress-bar']) }}">--}}
-{{--                      <a class="nav-link" href="{{ url('/basic-ui/progress-bar') }}">Add Team</a>--}}
-{{--                  </li>--}}
-{{--              </ul>--}}
-{{--          </div>--}}
-{{--      </li>--}}
+                  <li class="nav-item {{ active_class(['basic-ui/progress-bar']) }}">
+                      <a class="nav-link" href="{{ route('team.create')}}">Add Team</a>
+                  </li>
+              </ul>
+          </div>
+      </li>
 
     <!--------------- TESTIMONIAL ---------------------------------------------------------->
 {{--      <li class="nav-item {{ active_class(['basic-ui/*']) }}">--}}
@@ -227,25 +241,25 @@
 {{--      </li>--}}
 
       <!-----------------  Recent Visa Acceptance -------------------------------------------->
-{{--      <li class="nav-item {{ active_class(['basic-ui/*']) }}">--}}
-{{--          <a class="nav-link" data-toggle="collapse" href="#visa" aria-expanded="{{ is_active_route(['basic-ui/*']) }}" aria-controls="basic-ui">--}}
+      <li class="nav-item {{ active_class(['basic-ui/*']) }}">
+          <a class="nav-link" data-toggle="collapse" href="#visa" aria-expanded="{{ is_active_route(['basic-ui/*']) }}" aria-controls="basic-ui">
 
-{{--              <i class="icon-layers menu-icon"></i>--}}
-{{--              <span class="menu-title"> Recent Visa Acceptance</span>--}}
-{{--              <i class="menu-arrow"></i>--}}
-{{--          </a>--}}
-{{--          <div class="collapse {{ show_class(['basic-ui/*']) }}" id="visa">--}}
-{{--              <ul class="nav flex-column sub-menu">--}}
-{{--                  <li class="nav-item {{ active_class(['basic-ui/accordions']) }}">--}}
-{{--                      <a class="nav-link" href="{{ url('/basic-ui/accordions') }}" style="font-size: 14px">Recent Visa Acceptance</a>--}}
-{{--                  </li>--}}
+              <i class="icon-layers menu-icon"></i>
+              <span class="menu-title">Visa Approved</span>
+              <i class="menu-arrow"></i>
+          </a>
+          <div class="collapse {{ show_class(['basic-ui/*']) }}" id="visa">
+              <ul class="nav flex-column sub-menu">
+                  <li class="nav-item {{ active_class(['basic-ui/accordions']) }}">
+                      <a class="nav-link" href="{{ route('visa-acceptance.index') }}" style="font-size: 14px">Visa Approved</a>
+                  </li>
 
-{{--                  <li class="nav-item {{ active_class(['basic-ui/progress-bar']) }}">--}}
-{{--                      <a class="nav-link" href="{{ url('/basic-ui/progress-bar') }}" style="font-size: 14px">Add Visa Acceptance</a>--}}
-{{--                  </li>--}}
-{{--              </ul>--}}
-{{--          </div>--}}
-{{--      </li>--}}
+                  <li class="nav-item {{ active_class(['basic-ui/progress-bar']) }}">
+                      <a class="nav-link" href="{{ route('visa-acceptance.create') }}" style="font-size: 14px">Add Visa Approved</a>
+                  </li>
+              </ul>
+          </div>
+      </li>
 
   </ul>
 </nav>

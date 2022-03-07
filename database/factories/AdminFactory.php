@@ -22,7 +22,7 @@ class AdminFactory extends Factory
             'email' => 'admin@niceeducation.com',
             'password' => bcrypt('admin@niceeducation.com'),
             'verified' => true,
-            'image' => 'logo.png'
+
         ];
     }
 }

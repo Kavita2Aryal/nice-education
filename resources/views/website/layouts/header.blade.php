@@ -2,7 +2,7 @@
     <div class="container">
         <nav>
             <a href="{{url('/')}}" class="brand">
-                <img src="{{asset('frontend/images/logo.png')}}" alt="nice" />
+                <img src="{{asset('storage/images/company/logos/'.$company->logo)}}" alt="nice" />
             </a>
 
             <ul class="nav" id="sidebar">
@@ -26,14 +26,12 @@
                         <i class="bi bi-chevron-down"></i>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <li><a class="dropdown-item" href="{{route('studyAbroad')}}">Australia</a></li>
-                        <li><a class="dropdown-item" href="./study">Japan</a></li>
-                        <li><a class="dropdown-item" href="./study">Germany</a></li>
+                        @foreach($countries as $key => $value)
+                        <li><a class="dropdown-item" href="{{route('studyAbroad')}}">{{$value->country_name}}</a></li>
+                        @endforeach
                     </ul>
                 </li>
-{{--                <li class="nav-item">--}}
-{{--                    <a class="nav-link" href="./test">Test Preparation</a>--}}
-{{--                </li>--}}
+
                 <li class="nav-item dropdown">
                     <a
                         class="dropdown-toggle nav-link"
@@ -46,19 +44,12 @@
                     </a>
 
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        @foreach($test_preparations as $test_preparation)
                         <li>
-                            <a class="dropdown-item" href="{{route('testPreparation')}}">TOEFL</a>
+                            <a class="dropdown-item" href="{{route('testPreparation',['id'=>$test_preparation->id,'slug'=>$test_preparation->slug])}}">{{$test_preparation->title}}</a>
                         </li>
-                        <li>
-                            <a class="dropdown-item" href="./services#nav-dguide-tab"
-                            >GMAT</a
-                            >
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="./services#nav-va-tab"
-                            >SAT</a
-                            >
-                        </li>
+                        @endforeach
+
                     </ul>
                 </li>
                 <li class="nav-item">
@@ -77,7 +68,7 @@
                 <a href="tel:0000000000"><i class="bi bi-telephone-fill"></i><span>Call Us</span></a>
             </li>
             <li><i class="bi bi-chat-dots-fill"></i><span>Chat <br>with us</span></li>
-            <li><a href="#!"<i class="bi bi-telephone-inbound-fill"></i><span>Request<br>Callback</span></a></li>
+            <li><a href="#!"><i class="bi bi-telephone-inbound-fill"></i><span>Request<br>Callback</span></a></li>
         </ul>
     </div>
 </header>

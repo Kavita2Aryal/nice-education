@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-@section('title','Update Service')
+@section('title','Service')
 
 @section('content')
     <div>
@@ -14,6 +14,9 @@
                             @csrf
                             @method('put')
 
+                        @if($errors->any())
+                            {{ implode('', $errors->all('<div>:message</div>')) }}
+                        @endif
 
                         <!-- bootstrap-imageupload. -->
 
@@ -25,7 +28,7 @@
                                             <h4 class="card-title d-flex">Upload Image
 
                                             </h4>
-                                            <input type="file" name="banner_image" class="dropify" data-default-file="{{$service->banner_image}}" data-parsley-trigger="keyup" accept="image/jpeg, image/png, image/jpg" data-parsley-filemimetypes = 'image/jpeg, image/png'/>
+                                            <input type="file" name="image" class="dropify" data-default-file="{{$service->image}}" data-parsley-trigger="keyup" accept="image/jpeg, image/png, image/jpg" data-parsley-filemimetypes = 'image/jpeg, image/png'/>
                                             <div class="clearfix"></div>
 
                                         </div>
@@ -34,23 +37,33 @@
                             </div>
                             <div class="col-lg-3"></div>
                             <div class="form-group col-lg-6">
-                                <label for="firstname">Service Title</label>
-                                <input id="title" class="form-control" name="title" value="{{$service->title}}" type="text" data-parsley-trigger="keyup" required data-parsley-required-message= "*The title field is required.">
+                                <label for="firstname">Service Name</label>
+                                <input id="title" class="form-control" name="name" value="{{$service->title}}" type="text" data-parsley-trigger="keyup" required data-parsley-required-message= "*The service name field is required.">
                             </div>
                             <div class="form-group col-lg-6">
                                 <label for="lastname">Slug</label>
-                                <input id="slug" class="form-control" name="slug" value="{{$service->slug}}" type="text" data-parsley-trigger="keyup"  required data-parsley-required-message= "*The slug field is required.">
+                                <input class="form-control" name="slug" value="{{$service->slug}}" type="text" data-parsley-trigger="keyup"  required data-parsley-required-message= "*The slug field is required.">
                             </div>
+
+                            <div class="form-group col-lg-6">
+                                <label for="lastname">Priority</label>
+                                <input  class="form-control" name="priority" value="{{$service->priority}}" type="number" data-parsley-trigger="keyup"  required data-parsley-required-message= "*The priority field is required.">
+                            </div>
+
+                                <div class="form-group col-lg-6">
+                                    <label for="lastname">Section Title</label>
+                                    <input  class="form-control" name="title" value="{{$service->title}}" type="text" data-parsley-trigger="keyup"  required data-parsley-required-message= "*The slug field is required.">
+                                </div>
 
                             <div class="form-group col-lg-12">
                                 <label for="description">Description</label>
-                                <textarea name="description" id="summernoteEditor" cols="30" rows="5" > {!! $service->description !!}</textarea>
+                                <textarea name="description" id="summernoteEditor" cols="30" rows="10" data-parsley-trigger="keyup"  required data-parsley-required-message= "*The description field is required.">{!! $service->description !!}</textarea>
                             </div>
 
                             <div class="form-group col-lg-12">
                                 <div class="form-check form-check-flat form-check-success">
                                     <label class="form-check-label">
-                                        <input type="checkbox" name="status" value="1" class="form-check-input" @if($service->status) checked @endif>
+                                        <input type="checkbox" name="status" value="1" class="form-check-input" checked>
                                         Active
                                         <i class="input-helper"></i>
                                     </label>
@@ -59,7 +72,7 @@
 
 
                             <div class="form-group col-lg-12">
-                                <input class="btn btn-primary float-right" type="submit" value="Update">
+                                <input class="btn btn-primary float-right" type="submit" value="Save">
                             </div>
                         </form>
                     </div>

@@ -33,3 +33,26 @@ function is_active_route($path) {
 function show_class($path) {
     return call_user_func_array('Request::is', (array)$path) ? 'show' : '';
 }
+
+function count_space($string)
+{
+    $length = strlen($string);
+    $count = 3;
+    $index = $length;
+    for($i = 0; $i < $length; ++$i){
+        if($string[$i] == ' '){
+            $count--;
+            if($count == 0){
+                $index = $i;
+                break;
+            }
+        }
+
+    }
+
+    $newstr = substr_replace($string, "<br>", $index, 0);
+
+    return $newstr;
+
+
+}

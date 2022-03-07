@@ -15,14 +15,15 @@ class CreateServicesTable extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('parent_id')->nullable();
-            $table->string('title',200);
+            $table->string('image');
+            $table->string('name',200);
             $table->string('slug',200);
-            $table->longText('description')->nullable();
-            $table->string('banner_image')->default('default_service_banner.png');
-            $table->boolean('status')->default(0);
+            $table->string('title',200);
+            $table->longText('description');
+            $table->integer('priority');
+            $table->string('bg_colour')->default('rgba(158, 214, 255, 0.5)');
+            $table->boolean('status')->default(false);
             $table->timestamps();
-            $table->foreign('parent_id')->references('id')->on('services')->onUpdate('cascade')->onDelete('cascade');
 
         });
     }

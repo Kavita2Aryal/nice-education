@@ -1,6 +1,13 @@
 @extends('website.layouts.master')
 @section('title','Study Abroad -Nice Education')
 @section('content')
+    @php
+    $company = \App\Models\Company::first();
+    $countries = \App\Models\StudyAbroad::select('country_name')->get();
+    $test_preparations = \App\Models\TestPreparation::select('id','title','slug')->get();
+    $services = \App\Models\Service::select('id','image','name','slug','title','description','bg_colour')->orderBy('priority','asc')->get();
+    $universities = \App\Models\University::orderBy('priority','desc')->get();;
+    @endphp
     <main class="main notfound-page">
         <section class="banner--title notfound">
             <div class="container">

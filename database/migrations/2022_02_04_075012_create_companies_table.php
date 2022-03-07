@@ -30,8 +30,28 @@ class CreateCompaniesTable extends Migration
             $table->string('whatsapp_number')->nullable();
             $table->text('map_url')->nullable();
 
+            $table->text('our_mission')->nullable();
+            $table->text('our_vision')->nullable();
+
             $table->string('title_for_contact_us')->nullable();
             $table->text('description_for_contact_us')->nullable();
+
+            $table->text('footer_text')->nullable();
+
+            $table->string('homepage_banner')->nullable();
+            $table->string('banner_title')->nullable();
+            $table->string('sub_text')->nullable();
+            $table->string('btn_text')->nullable();
+            $table->string('btn_url')->nullable();
+
+            /** for content of visa acceptance content */
+
+            $table->string('visa_acceptance_image1')->nullable();
+            $table->string('visa_acceptance_description1')->nullable();
+            $table->string('visa_acceptance_image2')->nullable();
+            $table->string('visa_acceptance_description2')->nullable();
+
+
             $table->timestamps();
         });
     }

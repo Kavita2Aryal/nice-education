@@ -13,6 +13,10 @@ $(function () {
             tabsize: 2
         });
     }
+
+    $('.summernoteEditor').summernote({
+        height: 150,
+    });
 });
 
 function convertToSlug(title)

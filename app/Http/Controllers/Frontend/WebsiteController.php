@@ -5,7 +5,15 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\EnquiryRequest;
 use App\Models\Company;
+use App\Models\DocumentRequired;
+use App\Models\HowItWork;
+use App\Models\Page;
+use App\Models\Service;
 use App\Models\StudyAbroad;
+use App\Models\Team;
+use App\Models\TestPreparation;
+use App\Models\VisaAcceptance;
+use App\Models\WhyUs;
 use App\Services\EnquiryService;
 use Illuminate\Http\Request;
 
@@ -24,11 +32,16 @@ class WebsiteController extends CommonController
 
     public function index()
     {
+        $this->website['about_us'] = Page::findOrFail(1);
+        $this->website['visaAcceptances'] = VisaAcceptance::latest()->limit(12)->get();
         return view("website.index", $this->website);
     }
 
     public function aboutUs()
     {
+        $this->website['about_us'] = Page::findOrFail(1);
+        $this->website['whyUs'] = WhyUs::get();
+        $this->website['teams'] = Team::get();
         return view("website.about_us", $this->website);
     }
 
@@ -51,8 +64,23 @@ class WebsiteController extends CommonController
         return view("website.our_services", $this->website);
     }
 
-    public function testPreparation()
+    public function serviceDetail($id,$slug)
     {
+        if ($id == 1) {
+            $this->website['ourWorks'] = HowItWork::get();
+        }
+        if ($id ==2){
+            $this->website['documents'] = DocumentRequired::get();
+        }
+
+
+        $this->website['service'] = Service::findOrFail($id);
+        return view("website.service_detail", $this->website);
+    }
+
+    public function testPreparation($id,$slug)
+    {
+        $this->website['test'] = TestPreparation::with('exams','books','faqs')->find($id);
         return view("website.test_preparation", $this->website);
     }
 
