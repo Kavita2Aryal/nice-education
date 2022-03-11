@@ -44,6 +44,8 @@ class CompanyRequest extends FormRequest
             'description_for_contact_us' =>'bail|nullable|string',
             'footer_text' =>'bail|nullable|string',
 
+            'homepage_welcome_image'=> 'bail|nullable|file|max:2048|mimes:png,jpg,jpeg,webp',
+
             'homepage_banner'=> 'bail|nullable|file|max:2048|mimes:png,jpg,jpeg,webp',
             'banner_title' =>'bail|nullable|string',
             'sub_text' =>'bail|nullable|string',

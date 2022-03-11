@@ -17,7 +17,7 @@ class CommonController extends Controller
 
     public function __construct()
     {
-            $this->website['countries'] = StudyAbroad::select('country_name')->get();
+            $this->website['countries'] = StudyAbroad::select('country_name','id','slug')->get();
             $this->website['company'] = Company::firstOrFail();
             $this->website['universities'] =University::orderBy('priority','desc')->get();
             $this->website['services'] = Service::select('id','image','name','slug','title','description','bg_colour')->orderBy('priority','asc')->get();

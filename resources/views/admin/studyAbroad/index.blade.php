@@ -3,11 +3,28 @@
 
 @section('content')
     <div>
+
+        <div class="row">
+            <div class="col-md-12 grid-margin">
+                <div class="template-demo">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb bg-light bg-*">
+                            <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('study-abroad.index')}}"> Study Abroad </a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Manage Study Abroad</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
                         Manage Study Abroad ( Country )
+                        <button class="btn btn-outline-primary btn-xs float-right" onclick="window.location.href='{{route('study-abroad.create')}}';" data-toggle="tooltip" data-placement="bottom"  title="Create Study Abroad"> <i class="icon-plus"></i> </button>
+
                     </div>
                     <div class="card-body">
                         <div class="row">

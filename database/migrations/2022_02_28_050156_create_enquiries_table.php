@@ -19,8 +19,8 @@ class CreateEnquiriesTable extends Migration
             $table->string('last_name',100);
             $table->string('email_address',100);
             $table->string('mobile_number',100);
-            $table->string('question_about');
-            $table->string('preferred_country');
+            $table->json('question_about')->nullable();
+            $table->json('preferred_country')->nullable();
             $table->text('question');
             $table->timestamps();
         });

@@ -1,11 +1,10 @@
 @extends('admin.layouts.master')
-@section('title','Study Abroad')
+@section('title',$test->title)
 
 @section('content')
 
     <div class="preload"><img src="{{asset('images/loader.gif')}}"></div>
     <div class="content">
-
 
         <div class="row">
             <div class="col-md-12 grid-margin">
@@ -13,8 +12,8 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb bg-light bg-*">
                             <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                            <li class="breadcrumb-item"><a href="{{route('study-abroad.index')}}">Study Abroad </a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Create Study Abroad</li>
+                            <li class="breadcrumb-item"><a href="{{route('test-preparation.index')}}">Test Preparation </a></li>
+                            <li class="breadcrumb-item active" aria-current="page"> Update Test  <b> : :</b>   {{$test->title}}</li>
                         </ol>
                     </nav>
                 </div>
@@ -34,16 +33,15 @@
 
                 <div class="card">
                     <div class="card-header">
-                        Create Study Abroad ( Country)
+                        Create Test
 
-                        <button class="btn btn-outline-primary btn-xs float-right" onclick="window.location.href='{{route('study-abroad.index')}}';" data-toggle="tooltip" data-placement="bottom"  title="Study Abroad List"> <i class="icon-list"></i> </button>
+                        <button class="btn btn-outline-primary btn-xs float-right" onclick="window.location.href='{{route('test-preparation.index')}}';" data-toggle="tooltip" data-placement="bottom"  title="Test List"> <i class="icon-list"></i> </button>
 
                     </div>
                     <div class="card-body">
-                        <form class="cmxform demo-form" id="parsleyValidationForm" method="post" action="{{route('study-abroad.store')}}" enctype="multipart/form-data">
+                        <form class="cmxform demo-form" id="parsleyValidationForm" method="post" action="{{route('test-preparation.store')}}" enctype="multipart/form-data">
                         @csrf
-
-                            <!-- bootstrap-imageupload. -->
+                        <!-- bootstrap-imageupload. -->
                             <div class="form-section">
                                 <div class="row">
                                     <div class="col-lg-3"></div>
@@ -51,10 +49,10 @@
                                         <div class="grid-margin stretch-card">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title d-flex">Upload Image for Education System
+                                                    <h4 class="card-title d-flex">Upload Banner Image
 
                                                     </h4>
-                                                    <input type="file" name="education_system_image" class="dropify" data-parsley-trigger="keyup" accept="image/jpeg, image/png, image/jpg" data-parsley-filemimetypes = 'image/jpeg, image/png' required/>
+                                                    <input type="file" name="banner_image" class="dropify" data-parsley-trigger="keyup" accept="image/jpeg, image/png, image/jpg" data-parsley-filemimetypes = 'image/jpeg, image/png'/>
                                                     <div class="clearfix"></div>
 
                                                 </div>
@@ -63,63 +61,51 @@
                                     </div>
                                     <div class="col-lg-3"></div>
                                     <div class="form-group col-lg-6">
-                                        <label for="title">Country Name <span class="required"> * </span></label>
-                                        <input id="title" class="form-control" name="country_name" value="{{old('country_name')}}" type="text" data-parsley-trigger="keyup" required="" data-parsley-required-message= "*The country name is required.">
+                                        <label for="title">Test Title <span class="required"> * </span></label>
+                                        <input id="title" class="form-control" name="title" value="{{old('title')}}" type="text" data-parsley-trigger="keyup" required="" data-parsley-required-message= "*The title field is required.">
                                     </div>
                                     <div class="form-group col-lg-6">
                                         <label for="slug">Slug <span class="required"> * </span> </label>
                                         <input id="slug" class="form-control" name="slug" value="{{old('slug')}}" type="text" data-parsley-trigger="keyup" required=""  data-parsley-required-message= "*The slug field is required.">
                                     </div>
 
-                                    <div class="form-group col-md-12">
-                                        <label for="summernoteEditor">Why This Country </label>
-                                        <textarea name="why_message" class="summernoteEditor"  cols="30" rows="5" required></textarea>
-                                    </div>
-
-                                    <div class="form-group col-md-12">
-                                        <label for="summernoteEditor">Welcome Message ( Education System Tab ) </label>
-                                        <textarea name="welcome_message" class="summernoteEditor"  cols="30" rows="5" required></textarea>
+                                    <div class="form-group col-lg-6">
+                                        <label for="document">Upload Document ( Only Pdf File ) </label>
+                                        <input id="document" class="form-control" name="document" type="file" accept=".pdf">
                                     </div>
 
                                     <div class="form-group col-lg-12">
-                                        <br>
-                                        <label for="slug">Education System Title ( Education System Tab )  <span class="required"> * </span> </label>
-                                        <input id="slug" class="form-control" name="education_system_title" value="{{old('education_system_title')}}" type="text"  >
+                                        <div class="form-check form-check-flat form-check-success">
+                                            <label class="form-check-label">
+                                                <input type="checkbox" name="status" value="1" class="form-check-input" checked>
+                                                Active
+                                                <i class="input-helper"></i>
+                                            </label>
+                                        </div>
                                     </div>
-
-                                    <div class="form-group col-md-12">
-                                        <label for="summernoteEditor">Education System Description ( Education System Tab ) </label>
-                                        <textarea name="education_system_description" class="summernoteEditor"  cols="30" rows="5"></textarea>
-                                    </div>
-
-
 
                                 </div>
                             </div>
 
-                            <!-- Popular Courses -->
+                            <!-- Test Overview -->
+
                             <div class="form-section">
-                                @include('admin.studyAbroad.includes.popular_courses')
+                                @include('admin.testPreparation.includes.overview')
                             </div>
 
-                            <!-- Document Required -->
+                            <!-- Test Preparation -->
                             <div class="form-section">
-                                @include('admin.studyAbroad.includes.document_required')
-                            </div>
-
-                            <!--  Intake  Tab -->
-                            <div class="form-section">
-                                @include('admin.studyAbroad.includes.intake')
-                            </div>
-
-                            <!--  Work - visa  Tab -->
-                            <div class="form-section">
-                                @include('admin.studyAbroad.includes.work_visa')
+                                @include('admin.testPreparation.includes.preparation')
                             </div>
 
                             <!-- Test Format -->
                             <div class="form-section">
-                                @include('admin.studyAbroad.includes.faq')
+                                @include('admin.testPreparation.includes.testFormat')
+                            </div>
+
+                            <!-- Faq -->
+                            <div class="form-section">
+                                @include('admin.testPreparation.includes.faq')
                             </div>
 
 

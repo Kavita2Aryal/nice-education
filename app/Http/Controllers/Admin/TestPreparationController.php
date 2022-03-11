@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\TestPreparationRequest;
+use App\Models\TestPreparation;
 use App\Services\PreparationBookService;
 use App\Services\TestExamService;
 use App\Services\TestPreparationFaqService;
@@ -152,7 +153,9 @@ class TestPreparationController extends CommonController
      */
     public function edit($id)
     {
-        //
+        $this->website['test'] = TestPreparation::find($id);
+        return view('admin.testPreparation.edit',$this->website);
+
     }
 
     /**

@@ -13,6 +13,9 @@ use App\Http\Controllers\Admin\DocumentRequiredController;
 use App\Http\Controllers\Admin\StudyAbroadController;
 use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\EnquiryController;
+use App\Http\Controllers\Admin\CalendarController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Admin Routes
@@ -60,6 +63,8 @@ Route::middleware('auth:admin')->group(function () {
     Route::resource('test-preparation',TestPreparationController::class);
     Route::resource('enquiry',EnquiryController::class);
 
+    Route::post('faq-update/{id}', [AdminController::class,'faqUpdate'])->name('faqUpdate');
+
 
     Route::get('profile',[AdminController::class,'profile'])->name('profile');
     Route::post('profile',[AdminController::class,'updateProfile']);
@@ -68,10 +73,18 @@ Route::middleware('auth:admin')->group(function () {
     Route::post('update-password',[AdminController::class,'updatePassword']);
 
 
+    // Routes for event calendar
+//    Route::get('ckeditor', [CalendarController::class, 'index']);
+//    Route::post('fullcalendar/create', [CalendarController::class, 'create']);
+//    Route::post('fullcalendar/update', [CalendarController::class, 'update']);
+//    Route::post('fullcalendar/delete', [CalendarController::class, 'destroy']);
+
 
 
 
 });
+
+
 
 
 

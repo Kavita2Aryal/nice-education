@@ -5,18 +5,18 @@
 
     <div class="form-group col-md-12">
         <label for="intake_title"> Work Visa - Section Title </label>
-        <input id="work_visa_section_title" type="text" class="form-control" name="work_visa_section_title" value="{{old('work_visa_section_title')}}" required>
+        <input id="work_visa_section_title" type="text" class="form-control" name="work_visa_section_title" value="{{$study->work_visa_section_title}}" required>
     </div>
 
     <div class="form-group col-md-12">
         <label for="intake_description">Work Visa - Section Description </label>
-        <textarea name="work_visa_section_description" class="summernoteEditor" cols="30" rows="5" required>{!! old('work_visa_section_description') !!}</textarea>
+        <textarea name="work_visa_section_description" class="summernoteEditor" cols="30" rows="5" required>{{$study->work_visa_section_description}}</textarea>
 
     </div>
 
     <div class="form-group col-md-12">
         <label for="intake_description">Content for Yellow Section </label>
-        <textarea name="yellow_section_content" class="summernoteEditor" cols="30" rows="5" required>{!! old('yellow_section_content') !!}</textarea>
+        <textarea name="yellow_section_content" class="summernoteEditor" cols="30" rows="5" required>{{$study->yellow_section_content}}</textarea>
         <br><br><br>
     </div>
     <div class="form-group col-lg-12">
@@ -30,7 +30,7 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title d-flex">Upload  Image ( Right Side)</h4>
-                    <input type="file" name="image_below_yellow_section" class="dropify" data-parsley-trigger="keyup" accept="image/jpeg, image/png, image/jpg" data-parsley-filemimetypes = 'image/jpeg, image/png' required/>
+                    <input type="file" name="image_below_yellow_section" data-default-file="{{asset('storage/images/study-abroad/image_below_yellow_sections/'.$study->image_below_yellow_section)}}" class="dropify" data-parsley-trigger="keyup" accept="image/jpeg, image/png, image/jpg" data-parsley-filemimetypes = 'image/jpeg, image/png'/>
                     <div class="clearfix"></div>
                 </div>
             </div>
@@ -41,13 +41,13 @@
 
     <div class="form-group col-md-12">
         <label for="first_intake_session"> Section Title ( Below yellow section ) </label>
-        <input id="title_below_yellow_section" type="text" class="form-control" name="title_below_yellow_section" value="{{old('first_intake_session')}}" required>
+        <input id="title_below_yellow_section" type="text" class="form-control" name="title_below_yellow_section" value="{{$study->title_below_yellow_section}}" required>
     </div>
 
 
     <div class="form-group col-md-12">
         <label for="intake_description"> Section Description ( Below yellow section ) </label>
-        <textarea name="description_below_yellow_section" class="summernoteEditor" cols="30" rows="5" required>{!! old('intake_description') !!}</textarea>
+        <textarea name="description_below_yellow_section" class="summernoteEditor" cols="30" rows="5" required>{{ $study->description_below_yellow_section }}</textarea>
     </div>
 
 </div>

@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StudyAbroadRequest;
+use App\Models\TestPreparationFaq;
 use App\Services\StudyAbroadService;
 use App\Services\TestPreparationFaqService;
+use Facade\Ignition\QueryRecorder\Query;
 use Illuminate\Http\Request;
 
 class StudyAbroadController extends CommonController
@@ -93,6 +95,7 @@ class StudyAbroadController extends CommonController
     public function edit($id)
     {
         $this->website['study'] = $this->studyAbroadService->findOrFail($id);
+        $this->website['faqs'] = TestPreparationFaq::where(['type'=>'study','type_id'=>$id])->get();
         return view('admin.studyAbroad.edit',$this->website);
     }
 
@@ -107,6 +110,25 @@ class StudyAbroadController extends CommonController
     {
         $data = $request->validated();
         $study = $this->studyAbroadService->update($id, $data);
+
+        //save faq
+
+        $question  = $request->question;
+        $answer  = $request->answer;
+
+        if ($question && count($question)>0)
+        {
+            foreach ($question as $key => $datum) {
+                if ($datum != null)
+                {
+                    $faq['type'] = "study";
+                    $faq['type_id'] = $study->id;
+                    $faq['question'] = $question[$key];
+                    $faq['answer'] = $answer[$key];
+                    $this->testPreparationFaqService->store($faq);
+                }
+            }
+        }
 
         return back()->with('success','Data Updated Successfully');
     }

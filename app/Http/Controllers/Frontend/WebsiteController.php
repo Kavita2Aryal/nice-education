@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\EnquiryRequest;
 use App\Models\Company;
+use App\Models\Course;
 use App\Models\DocumentRequired;
 use App\Models\HowItWork;
 use App\Models\Page;
@@ -12,6 +13,7 @@ use App\Models\Service;
 use App\Models\StudyAbroad;
 use App\Models\Team;
 use App\Models\TestPreparation;
+use App\Models\TestPreparationFaq;
 use App\Models\VisaAcceptance;
 use App\Models\WhyUs;
 use App\Services\EnquiryService;
@@ -86,6 +88,15 @@ class WebsiteController extends CommonController
 
     public function studyAbroad()
     {
+        return view("website.study_abroad", $this->website);
+    }
+
+    public function studyAbroadDetail($id,$slug)
+    {
+        $this->website['study'] = StudyAbroad::findOrFail($id);
+        $this->website['courses'] = Course::get();
+        $this->website['documents'] =DocumentRequired::get();
+        $this->website['faqs'] = TestPreparationFaq::where(['type'=>'study','type_id'=>$id])->get();
         return view("website.study_abroad", $this->website);
     }
 }

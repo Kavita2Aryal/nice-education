@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-@section('title','Universities')
+@section('title','Enquiries')
 
 @section('content')
     <div>
@@ -10,8 +10,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb bg-light bg-*">
                             <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                            <li class="breadcrumb-item"><a href="{{route('university.index')}}">Universities </a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Manage Universities</li>
+                            <li class="breadcrumb-item active" aria-current="page">Manage Enquiries</li>
                         </ol>
                     </nav>
                 </div>
@@ -22,9 +21,9 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        Manage Universities
+                        Enquiries
 
-                        <button class="btn btn-outline-primary btn-xs float-right" onclick="window.location.href='{{route('university.create')}}';" data-toggle="tooltip" data-placement="bottom"  title="Create University"> <i class="icon-plus"></i> </button>
+                        <button class="btn btn-outline-primary btn-xs float-right" onclick="window.location.href='{{route('page.create')}}';" data-toggle="tooltip" data-placement="bottom"  title="Create Page"> <i class="icon-plus"></i> </button>
 
                     </div>
                     <div class="card-body">
@@ -35,24 +34,32 @@
                                         <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Logo</th>
                                             <th>Name</th>
-                                            <th>Country</th>
+                                            <th>Enquiry About</th>
+                                            <th>Preferred Country</th>
                                             <th>Actions</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        @foreach($universities as $key => $university)
+                                        @foreach($enquiries as $key => $enquiry)
                                             <tr>
                                                 <td>{{++$key}}</td>
-                                                <td><img src="{{asset('storage/images/university/logos/'.$university->logo)}}" alt=""></td>
-                                                <td>{{$university->name}}</td>
+                                                <td>{{$enquiry->first_name}} {{$enquiry->last_name}}</td>
                                                 <td>
-                                                    {{$university->country->country_name}}
+
+                                                    @foreach(json_decode($enquiry->question_about) as $data)
+                                                        {{$data}},
+                                                    @endforeach
                                                 </td>
                                                 <td>
-                                                    <a  class="btn btn-sm  btn-outline-success" href="{{route('university.edit',$university->id)}}" title="Edit" ><i class="mdi mdi-lead-pencil"></i></a>
-                                                    <button  class="btn btn-sm btn-outline-danger" onclick="deleteFunction({{$university->id}})" title="Delete"><i class="mdi mdi-close"></i></button>
+                                                    @foreach(json_decode($enquiry->preferred_country) as $data)
+                                                        {{$data}},
+                                                    @endforeach
+                                                </td>
+
+                                                <td>
+                                                    <a  class="btn btn-sm  btn-outline-success" href="{{route('enquiry.show',$enquiry->id)}}" title="Show" ><i class="mdi mdi-eye"></i></a>
+                                                    <button  class="btn btn-sm btn-outline-danger" onclick="deleteFunction({{$enquiry->id}})" title="Delete"><i class="mdi mdi-close"></i></button>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -90,16 +97,17 @@
             }).then(function () {
 
                 $.ajax({
-                    url:'/admin/university' + '/' + id,
+                    url:'/admin/enquiry' + '/' + id,
                     type : "POST",
                     data : {'_method' : 'DELETE', '_token' : csrf_token},
 
                     success:function(){
-
-                        console.log('success');
                         location.reload();
+                        console.log('success');
+
                     },
                     error:function(){
+                        location.reload();
                         swal({
                             title: 'Oops...',
                             text: data.message,

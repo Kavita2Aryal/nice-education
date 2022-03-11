@@ -38,14 +38,15 @@ class CreateCompaniesTable extends Migration
 
             $table->text('footer_text')->nullable();
 
+            $table->string('homepage_welcome_image')->nullable();
+
             $table->string('homepage_banner')->nullable();
             $table->string('banner_title')->nullable();
             $table->string('sub_text')->nullable();
             $table->string('btn_text')->nullable();
             $table->string('btn_url')->nullable();
 
-            /** for content of visa acceptance content */
-
+            /** for content of visa acceptance section */
             $table->string('visa_acceptance_image1')->nullable();
             $table->string('visa_acceptance_description1')->nullable();
             $table->string('visa_acceptance_image2')->nullable();

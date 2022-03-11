@@ -34,11 +34,13 @@ class Company extends Model implements ImageableContract
         'description_for_contact_us'      => 'string',
         'footer_text'                     => 'string',
 
-        'homepage_banner'   =>'image',
-        'banner_title'      =>'string',
-        'sub_text'          =>'string',
-        'btn_text'          =>'string',
-        'btn_url'           =>'string',
+        'homepage_welcome_image'          => 'image',
+
+        'homepage_banner'                 =>'image',
+        'banner_title'                    =>'string',
+        'sub_text'                        =>'string',
+        'btn_text'                        =>'string',
+        'btn_url'                         =>'string',
 
         'visa_acceptance_description1'      =>'string',
         'visa_acceptance_image1'            =>'image',

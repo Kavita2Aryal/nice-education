@@ -3,19 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Enquiry;
-use App\Services\EnquiryService;
 use Illuminate\Http\Request;
 
-class EnquiryController extends CommonController
+class NewsController extends Controller
 {
-    private $enquiryService;
-
-    public function __construct(EnquiryService $enquiryService)
-    {
-        parent::__construct();
-        $this->enquiryService = $enquiryService;
-    }
     /**
      * Display a listing of the resource.
      *
@@ -23,9 +14,7 @@ class EnquiryController extends CommonController
      */
     public function index()
     {
-        $this->website['enquiries'] = $this->enquiryService->query()->latest()->paginate($this->paginationLimit);
-        return view('admin.enquiry.index',$this->website);
-
+        //
     }
 
     /**
@@ -57,8 +46,7 @@ class EnquiryController extends CommonController
      */
     public function show($id)
     {
-        $this->website['enquiry'] = Enquiry::find($id);
-        return view('admin.enquiry.show',$this->website);
+        //
     }
 
     /**
@@ -92,8 +80,6 @@ class EnquiryController extends CommonController
      */
     public function destroy($id)
     {
-        $enquiry = Enquiry::find($id);
-        $enquiry->delete();
-        return back();
+        //
     }
 }

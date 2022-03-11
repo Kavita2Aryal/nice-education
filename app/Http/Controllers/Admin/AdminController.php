@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\CompanyRequest;
 use App\Models\Admin;
 use App\Models\HowItWork;
+use App\Models\TestPreparationFaq;
 use App\Services\CompanyService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -148,5 +149,16 @@ class AdminController extends CommonController
         if($user->save()){
             return back()->with('success','Password Updated Successfully');
         }
+    }
+
+    public function faqUpdate(Request $request,$id)
+    {
+        $data = TestPreparationFaq::findOrFail($id);
+        $data->update([
+           'question' => $request-> question,
+           'answer' => $request-> answer,
+        ]);
+
+        return back()->with('success','Data Updated Successfully');
     }
 }

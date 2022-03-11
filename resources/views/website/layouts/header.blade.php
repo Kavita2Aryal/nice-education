@@ -13,7 +13,8 @@
                     <a class="nav-link" href="{{route('aboutUs')}}">About us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('ourServices')}}">Our Services</a>
+
+                    <a class="nav-link" href="{{route('serviceDetail',['id'=>\App\Models\Service::first()->id,'slug'=>\App\Models\Service::first()->slug])}}">Our Services</a>
                 </li>
 
                 <li class="nav-item dropdown">
@@ -27,7 +28,7 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         @foreach($countries as $key => $value)
-                        <li><a class="dropdown-item" href="{{route('studyAbroad')}}">{{$value->country_name}}</a></li>
+                        <li><a class="dropdown-item" href="{{route('studyAbroadDetail',['id'=>$value->id,'slug'=>$value->slug])}}">{{$value->country_name}}</a></li>
                         @endforeach
                     </ul>
                 </li>
@@ -64,11 +65,26 @@
     </div>
     <div class="floating--widget">
         <ul>
+            @if($company->mobile != null)
             <li>
-                <a href="tel:0000000000"><i class="bi bi-telephone-fill"></i><span>Call Us</span></a>
+                <a href="tel:{{$company->mobile}}"><i class="bi bi-telephone-fill"></i><span>Call Us</span></a>
             </li>
-            <li><i class="bi bi-chat-dots-fill"></i><span>Chat <br>with us</span></li>
-            <li><a href="#!"><i class="bi bi-telephone-inbound-fill"></i><span>Request<br>Callback</span></a></li>
+            @endif
+
+            @if($company->whatsapp_number != null)
+            <li>
+                <a href="https://wa.me/{{$company->whatsapp_number}}" target="_blank">
+                <i class="bi bi-chat-dots-fill"></i><span>Chat <br>with us</span>
+                </a>
+            </li>
+
+            @endif
+
+            @if($company->phone != null)
+            <li>
+                <a href="tel:{{$company->phone}}"><i class="bi bi-telephone-inbound-fill"></i><span>Request<br>Callback</span></a>
+            </li>
+            @endif
         </ul>
     </div>
 </header>

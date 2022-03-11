@@ -26,7 +26,6 @@
                             {{ implode('', $errors->all('<div>:message</div>')) }}
                         @endif
 
-                        <button class="btn btn-outline-primary btn-xs float-right" data-toggle="tooltip" data-placement="bottom"  title="Hooray!"> <i class="icon-plus"></i> </button>
                     </div>
                     <div class="card-body">
                         <form class="row cmxform" id="parsleyValidationForm" method="post" action="{{route('manageBanner')}}" enctype="multipart/form-data">

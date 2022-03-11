@@ -2,12 +2,36 @@
 @section('title','Update Page')
 
 @section('content')
+    <style>
+        button.action-button{
+            padding : 5990px !important;
+        }
+    </style>
     <div>
+        <div class="row">
+            <div class="col-md-12 grid-margin">
+                <div class="template-demo">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb bg-light bg-*">
+                            <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('page.index')}}">Page </a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Update Page  <b> : :</b>   {{$page->title}}</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
                         Update Page : {{$page->title}}
+
+                        <div class="float-right">
+                        <button  class="btn btn-outline-primary btn-xs  action-button" onclick="window.location.href='{{route('page.create')}}';" data-toggle="tooltip" data-placement="bottom"  title="Create Page"> <i class="icon-plus"></i> </button>
+                        <button class="btn btn-outline-primary btn-xs" onclick="window.location.href='{{route('page.index')}}';" data-toggle="tooltip" data-placement="bottom"  title="Page List"> <i class="icon-list"></i> </button>
+                        </div>
                     </div>
                     <div class="card-body">
                         <form class="row cmxform" id="parsleyValidationForm" method="post" action="{{route('page.update',$page->id)}}" enctype="multipart/form-data">

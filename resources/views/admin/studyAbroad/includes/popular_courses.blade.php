@@ -17,7 +17,7 @@
 
 
     <div class="form-group col-md-12">
-         <span style="font-size: 14px;font-weight: bold"> <a href="{{route('course.index')}}"> <i class="icon-arrow-right"></i> Manage Course</a> </span>
+         <span style="font-size: 14px;font-weight: bold"> <a href="{{route('course.index')}}" target="_blank"> <i class="icon-arrow-right"></i> Manage Course</a> </span>
     </div>
 
 

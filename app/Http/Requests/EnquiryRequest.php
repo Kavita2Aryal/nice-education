@@ -28,8 +28,8 @@ class EnquiryRequest extends FormRequest
             'last_name' =>'required',
             'email_address' =>'required',
             'mobile_number' =>'required',
-            'question_about' =>'required',
-            'preferred_country' =>'required',
+            'question_about' =>'bail|nullable|array',
+            'preferred_country' =>'bail|nullable|array',
             'question' =>'required'
         ];
     }

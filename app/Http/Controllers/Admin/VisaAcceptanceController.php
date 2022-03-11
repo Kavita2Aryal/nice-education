@@ -67,6 +67,8 @@ class VisaAcceptanceController extends CommonController
      */
     public function edit($id)
     {
+        $this->website['countries'] = StudyAbroad::select('id','country_name')->get();
+
         $this->website['student'] = $this->visaAcceptanceService->findOrFail($id);
         return view('admin.visa.edit',$this->website);
     }

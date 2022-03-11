@@ -67,6 +67,7 @@ class UniversityController extends CommonController
     public function edit($id)
     {
         $this->website['university'] = $this->universityService->findOrFail($id);
+        $this->website['countries'] = StudyAbroad::select('id','country_name')->get();
         return view('admin.university.edit',$this->website);
     }
 

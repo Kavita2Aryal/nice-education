@@ -3,6 +3,21 @@
 
 @section('content')
     <div>
+
+        <div class="row">
+            <div class="col-md-12 grid-margin">
+                <div class="template-demo">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb bg-light bg-*">
+                            <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"> Document Required </li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+
         <div class="row">
             <div class="col-lg-5">
                 <div class="card">

@@ -23,13 +23,15 @@
                 <div class="card">
                     <div class="card-header">
                         Manage Website
+
+
                     </div>
                     <div class="card-body">
                         <form class="row cmxform" id="parsleyValidationForm" method="post" action="{{route('manageWebsite')}}" enctype="multipart/form-data">
                         @csrf
 
                         <!-- bootstrap-imageupload. -->
-                            <div class="form-group col-lg-6">
+                            <div class="form-group col-lg-4">
                                 <div class="grid-margin stretch-card">
                                     <div class="card">
                                         <div class="card-body">
@@ -44,7 +46,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group col-lg-6">
+                            <div class="form-group col-lg-4">
                                 <div class="grid-margin stretch-card">
                                     <div class="card">
                                         <div class="card-body">
@@ -52,6 +54,21 @@
 
                                             </h4>
                                             <input type="file" name="fav_icon" class="dropify" data-default-file="{{asset('storage/images/company/fav_icons/'.$company->fav_icon)}}" data-parsley-trigger="keyup" accept="image/jpeg, image/png, image/jpg" data-parsley-filemimetypes = 'image/jpeg, image/png'/>
+                                            <div class="clearfix"></div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-lg-4">
+                                <div class="grid-margin stretch-card">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h4 class="card-title d-flex">Homepage Welcome Image
+
+                                            </h4>
+                                            <input type="file" name="homepage_welcome_image" class="dropify" data-default-file="{{asset('storage/images/company/homepage_welcome_images/'.$company->homepage_welcome_image)}}" data-parsley-trigger="keyup" accept="image/jpeg, image/png, image/jpg" data-parsley-filemimetypes = 'image/jpeg, image/png'/>
                                             <div class="clearfix"></div>
 
                                         </div>

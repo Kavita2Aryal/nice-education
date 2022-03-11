@@ -4,10 +4,27 @@
 @section('content')
     <div>
         <div class="row">
+            <div class="col-md-12 grid-margin">
+                <div class="template-demo">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb bg-light bg-*">
+                            <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('page.index')}}">Page </a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Create Page</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
                         Create Page
+
+                        <button class="btn btn-outline-primary btn-xs float-right" onclick="window.location.href='{{route('page.index')}}';" data-toggle="tooltip" data-placement="bottom"  title="Page List"> <i class="icon-list"></i> </button>
+
                     </div>
                     <div class="card-body">
                         <form class="row cmxform" id="parsleyValidationForm" method="post" action="{{route('page.store')}}" enctype="multipart/form-data">
