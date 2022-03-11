@@ -25,9 +25,9 @@ class CalendarController extends Controller
         switch ($request->type) {
             case 'create':
                 $calendarEvent = Event::create([
-                    'event_title' => $request->event_title,
-                    'event_start' => $request->event_start,
-                    'event_end' => $request->event_end,
+                    'title' => $request->title,
+                    'start' => $request->start,
+                    'end' => $request->end,
                 ]);
 
                 return response()->json($calendarEvent);
@@ -35,9 +35,9 @@ class CalendarController extends Controller
 
             case 'edit':
                 $calendarEvent = Event::find($request->id)->update([
-                    'event_title' => $request->event_title,
-                    'event_start' => $request->event_start,
-                    'event_end' => $request->event_end,
+                    'title' => $request->title,
+                    'start' => $request->start,
+                    'end' => $request->end,
                 ]);
 
                 return response()->json($calendarEvent);

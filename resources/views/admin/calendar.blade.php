@@ -35,29 +35,31 @@
 
         var calendar = $('#fullCalendar').fullCalendar({
             editable: true,
-            editable: true,
             events: endpoint + "/show-event-calendar",
             displayEventTime: true,
             eventRender: function (event, element, view) {
                 if (event.allDay === 'true') {
                     event.allDay = true;
                 } else {
-                    event.allDay = false;
+                    event.allDay = true;
+
                 }
             },
             selectable: true,
             selectHelper: true,
             select: function (event_start, event_end, allDay) {
                 var event_title = prompt('Event Name:');
+
+
                 if (event_title) {
                     var event_start = $.fullCalendar.formatDate(event_start, "Y-MM-DD HH:mm:ss");
                     var event_end = $.fullCalendar.formatDate(event_end, "Y-MM-DD HH:mm:ss");
                     $.ajax({
                         url: endpoint + "/manage-events",
                         data: {
-                            event_title: event_title,
-                            event_start: event_start,
-                            event_end: event_end,
+                            title: event_title,
+                            start: event_start,
+                            end: event_end,
                             type: 'create'
                         },
                         type: "POST",
@@ -83,7 +85,7 @@
                 $.ajax({
                     url: endpoint + '/manage-events',
                     data: {
-                        title: event.event_title,
+                        title: event.title,
                         start: event_start,
                         end: event_end,
                         id: event.id,
