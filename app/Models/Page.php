@@ -25,6 +25,7 @@ class Page extends Model implements ImageableContract
 
     public $columnsWithTypes = [
         'title'             => 'string',
+        'section_title'             => 'string',
         'slug'             => 'string',
         'status'            => 'boolean',
         'image'            => 'image',

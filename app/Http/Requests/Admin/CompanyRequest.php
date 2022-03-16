@@ -44,16 +44,16 @@ class CompanyRequest extends FormRequest
             'description_for_contact_us' =>'bail|nullable|string',
             'footer_text' =>'bail|nullable|string',
 
-            'homepage_welcome_image'=> 'bail|nullable|file|max:2048|mimes:png,jpg,jpeg,webp',
+            'homepage_welcome_image'=> 'bail|nullable|file|mimes:png,jpg,jpeg,webp',
 
-            'homepage_banner'=> 'bail|nullable|file|max:2048|mimes:png,jpg,jpeg,webp',
+            'homepage_banner'=> 'bail|nullable|file|mimes:png,jpg,jpeg,webp',
             'banner_title' =>'bail|nullable|string',
             'sub_text' =>'bail|nullable|string',
             'btn_text' =>'bail|nullable|string',
             'btn_url' =>'bail|nullable|string',
 
-            'visa_acceptance_image1'=> 'bail|nullable|file|max:2048|mimes:png,jpg,jpeg,webp',
-            'visa_acceptance_image2'=> 'bail|nullable|file|max:2048|mimes:png,jpg,jpeg,webp',
+            'visa_acceptance_image1'=> 'bail|nullable|file|mimes:png,jpg,jpeg,webp',
+            'visa_acceptance_image2'=> 'bail|nullable|file |mimes:png,jpg,jpeg,webp',
             'visa_acceptance_description1' =>'bail|nullable|string',
             'visa_acceptance_description2' =>'bail|nullable|string',
 

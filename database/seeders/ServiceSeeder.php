@@ -20,7 +20,7 @@ class ServiceSeeder extends Seeder
                     'image' =>'no-image.jpg',
                     'name' => 'Career Counseling',
                     'slug' =>'career-counseling',
-                    'title' =>'Schedule an Appointment',
+                    'title' =>'Career Counseling',
                     'description' =>'Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. ',
                     'priority' => 1,
                     'bg_colour'=>"rgba(252, 227, 0, 0.26)"
@@ -59,7 +59,7 @@ class ServiceSeeder extends Seeder
                     'image' =>'no-image.jpg',
                     'name' => 'Finance Assistance',
                     'slug' =>'finance-assistance',
-                    'title' =>'',
+                    'title' =>'Finance Assistance',
                     'description' =>'Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. ',
                     'priority' => 5,
                     'bg_colour'=>"rgba(162, 242, 124, 0.5)"

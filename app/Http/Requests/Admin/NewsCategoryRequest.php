@@ -4,7 +4,7 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ServiceRequest extends FormRequest
+class NewsCategoryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,13 +24,11 @@ class ServiceRequest extends FormRequest
     public function rules()
     {
         return [
-            'image'=> 'bail|nullable|file',
-            'name'=>'required|string',
-            'slug' =>'required|string',
-            'title'=>'required|string',
-            'description' =>'required|string',
-            'priority' => 'required',
-            'status' => 'bail|required|in:true,false,0,1',
+            'name'  => 'string',
+            'slug'  => 'string',
+            'image' => 'image',
+            'order' => 'string',
+            'hide'  => 'boolean',
         ];
     }
 }

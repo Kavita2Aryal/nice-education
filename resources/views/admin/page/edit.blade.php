@@ -29,7 +29,7 @@
                         Update Page : {{$page->title}}
 
                         <div class="float-right">
-                        <button  class="btn btn-outline-primary btn-xs  action-button" onclick="window.location.href='{{route('page.create')}}';" data-toggle="tooltip" data-placement="bottom"  title="Create Page"> <i class="icon-plus"></i> </button>
+{{--                        <button  class="btn btn-outline-primary btn-xs  action-button" onclick="window.location.href='{{route('page.create')}}';" data-toggle="tooltip" data-placement="bottom"  title="Create Page"> <i class="icon-plus"></i> </button>--}}
                         <button class="btn btn-outline-primary btn-xs" onclick="window.location.href='{{route('page.index')}}';" data-toggle="tooltip" data-placement="bottom"  title="Page List"> <i class="icon-list"></i> </button>
                         </div>
                     </div>
@@ -57,12 +57,17 @@
                             </div>
                             <div class="col-lg-3"></div>
                             <div class="form-group col-lg-6">
-                                <label for="firstname">Page Title</label>
-                                <input id="title" class="form-control" name="title" value="{{$page->title}}" type="text" data-parsley-trigger="keyup" required data-parsley-required-message= "*The title field is required.">
+                                <label for="firstname">Page Name</label>
+                                <input id="title" class="form-control" name="title" value="{{$page->title}}" type="text" data-parsley-trigger="keyup" required data-parsley-required-message= "*The name field is required.">
                             </div>
                             <div class="form-group col-lg-6">
                                 <label for="lastname">Slug</label>
                                 <input id="slug" class="form-control" name="slug" value="{{$page->slug}}" type="text" data-parsley-trigger="keyup"  required data-parsley-required-message= "*The slug field is required.">
+                            </div>
+
+                            <div class="form-group col-lg-12">
+                                <label for="firstname">Section Title</label>
+                                <input id="title" class="form-control" name="section_title" value="{{$page->section_title}}" type="text" data-parsley-trigger="keyup" required data-parsley-required-message= "*The section title field is required.">
                             </div>
 
                             <div class="form-group col-lg-12">

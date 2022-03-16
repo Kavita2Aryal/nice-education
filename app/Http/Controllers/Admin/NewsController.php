@@ -3,10 +3,24 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\NewsRequest;
+use App\Models\NewsCategory;
+use App\Services\NewsService;
 use Illuminate\Http\Request;
 
-class NewsController extends Controller
+class NewsController extends CommonController
 {
+    /**
+     * @var NewsService
+     */
+    private $newsService;
+
+    public function __construct(NewsService $newsService)
+    {
+        parent::__construct();
+        $this->newsService = $newsService;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +28,8 @@ class NewsController extends Controller
      */
     public function index()
     {
-        //
+        $this->website['news'] = $this->newsService->query()->latest()->paginate($this->paginationLimit);
+        return view('admin.news.index',$this->website);
     }
 
     /**
@@ -24,7 +39,8 @@ class NewsController extends Controller
      */
     public function create()
     {
-        //
+        $this->website['categories'] = NewsCategory::all();
+        return view('admin.news.create',$this->website);
     }
 
     /**
@@ -33,9 +49,12 @@ class NewsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(NewsRequest $request)
     {
-        //
+        $data = $request->validated();
+
+        $category = $this->newsService->store($data);
+        return  redirect(route('news.index'))->with('success','News Created Successfully');
     }
 
     /**
@@ -57,7 +76,9 @@ class NewsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $this->website['categories'] = NewsCategory::all();
+        $this->website['news'] = $this->newsService->findOrFail($id);
+        return view('admin.news.edit',$this->website);
     }
 
     /**
@@ -67,9 +88,13 @@ class NewsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(NewsRequest $request, $id)
     {
-        //
+        $data = $request->validated();
+
+        $news_category = $this->newsService->update($id, $data);
+
+        return back()->with('success','News Updated Successfully');
     }
 
     /**
@@ -80,6 +105,8 @@ class NewsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = $this->newsService->delete($id);
+
+        return response('success');
     }
 }

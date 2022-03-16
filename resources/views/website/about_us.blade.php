@@ -24,7 +24,7 @@
                 <div class="grid">
                     <aside class="right">
                         <h2 class="title--section">
-                            <span>{{$about_us->title}}</span><span class="title--indicator"></span>
+                            <span>{{$about_us->section_title}}</span><span class="title--indicator"></span>
                         </h2>
                         <div class="para">
                             {!! $about_us->description !!}

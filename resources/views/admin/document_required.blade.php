@@ -20,6 +20,15 @@
 
         <div class="row">
             <div class="col-lg-5">
+
+                @if($errors->any)
+                    @foreach($errors->all() as $error)
+                        <div class="alert alert-danger">
+                            {{$error}}
+                        </div>
+                    @endforeach
+                @endif
+
                 <div class="card">
                     <div class="card-header">
                         Document Required

@@ -10,7 +10,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb bg-light bg-*">
                             <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                            <li class="breadcrumb-item active" aria-current="page"> Visa Acceptance Content</li>
+                            <li class="breadcrumb-item active" aria-current="page">Update Visa Guidance - Yellow Section Content</li>
                         </ol>
                     </nav>
                 </div>
@@ -19,6 +19,15 @@
 
         <div class="row">
             <div class="col-lg-12">
+
+                @if($errors->any)
+                    @foreach($errors->all() as $error)
+                        <div class="alert alert-danger">
+                            {{$error}}
+                        </div>
+                    @endforeach
+                @endif
+
                 <div class="card">
                     <div class="card-header">
                         Update Content (Yellow Background Section) of Service Visa Acceptance

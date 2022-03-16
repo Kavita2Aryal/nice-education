@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-@section('title','Pages')
+@section('title','News Categories')
 
 @section('content')
     <div>
@@ -9,9 +9,8 @@
                 <div class="template-demo">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb bg-light bg-*">
-                            <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                            <li class="breadcrumb-item"><a href="{{route('page.index')}}">Page </a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Manage Pages</li>
+                            <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}"> Dashboard </a></li>
+                            <li class="breadcrumb-item active" aria-current="page"> Manage News Categories </li>
                         </ol>
                     </nav>
                 </div>
@@ -22,9 +21,9 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        Manage Page
+                        Manage News Categories
 
-{{--                        <button class="btn btn-outline-primary btn-xs float-right" onclick="window.location.href='{{route('page.create')}}';" data-toggle="tooltip" data-placement="bottom"  title="Create Page"> <i class="icon-plus"></i> </button>--}}
+                        <button class="btn btn-outline-primary btn-xs float-right" onclick="window.location.href='{{route('news-category.create')}}';" data-toggle="tooltip" data-placement="bottom"  title="Create News Category"> <i class="icon-plus"></i> </button>
 
                     </div>
                     <div class="card-body">
@@ -36,25 +35,25 @@
                                         <tr>
                                             <th>#</th>
                                             <th>Image</th>
-                                            <th>Page</th>
-                                            <th>Created At</th>
+                                            <th>Name</th>
+                                            <th>Priority</th>
                                             <th>Actions</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        @foreach($pages as $key => $page)
-                                        <tr>
-                                            <td>{{++$key}}</td>
-                                            <td><img src="{{$page->image}}" alt=""></td>
-                                            <td>{{$page->title}}</td>
-                                            <td>
-                                                {{$page->created_at->format('d-M-Y')}}
-                                            </td>
-                                            <td>
-                                                <a  class="btn btn-sm  btn-outline-success" href="{{route('page.edit',$page->id)}}" title="Edit" ><i class="mdi mdi-lead-pencil"></i></a>
-                                                <button  class="btn btn-sm btn-outline-danger" onclick="deleteFunction({{$page->id}})" title="Delete"><i class="mdi mdi-close"></i></button>
-                                            </td>
-                                        </tr>
+                                        @foreach($news_categories as $key => $news_category)
+                                            <tr>
+                                                <td>{{++$key}}</td>
+                                                <td><img src="{{$news_category->image}}" alt=""></td>
+                                                <td>{{$news_category->name}}</td>
+                                                <td>
+                                                    {{$news_category->order}}
+                                                </td>
+                                                <td>
+                                                    <a  class="btn btn-sm  btn-outline-success" href="{{route('news-category.edit',$news_category->id)}}" title="Edit" ><i class="mdi mdi-lead-pencil"></i></a>
+                                                    <button  class="btn btn-sm btn-outline-danger" onclick="deleteFunction({{$news_category->id}})" title="Delete"><i class="mdi mdi-close"></i></button>
+                                                </td>
+                                            </tr>
                                         @endforeach
 
 
@@ -90,7 +89,7 @@
             }).then(function () {
 
                 $.ajax({
-                    url:'/admin/page' + '/' + id,
+                    url:'/admin/news-category' + '/' + id,
                     type : "POST",
                     data : {'_method' : 'DELETE', '_token' : csrf_token},
 

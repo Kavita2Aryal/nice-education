@@ -27,17 +27,17 @@ class TestPreparationRequest extends FormRequest
         return [
             'title'                => 'bail|required|string|max:200',
             'slug'                 => 'bail|required|string|unique:test_preparations,slug,' . $modelId,
-            'document'             => 'bail|nullable|file|max:2048|mimes:pdf',
-            'banner_image'         => 'bail|nullable|file|max:2048|mimes:png,jpg,jpeg,webp',
+            'document'             => 'bail|nullable|file|mimes:pdf',
+            'banner_image'         => 'bail|nullable|file|mimes:png,jpg,jpeg,webp',
 
             'overview_title'       => 'bail|required|string|max:200',
             'overview_description' => 'bail|required',
-            'overview_image'       => 'bail|nullable|file|max:2048|mimes:png,jpg,jpeg,webp',
+            'overview_image'       => 'bail|nullable|file|mimes:png,jpg,jpeg,webp',
 
             'preparation_title'          => 'bail|required|string',
             'preparation_description'    => 'bail|required|string',
-            'preparation_right_image'    => 'bail|nullable|file|max:2048|mimes:png,jpg,jpeg,webp',
-            'preparation_left_image'     => 'bail|nullable|file|max:2048|mimes:png,jpg,jpeg,webp',
+            'preparation_right_image'    => 'bail|nullable|file|mimes:png,jpg,jpeg,webp',
+            'preparation_left_image'     => 'bail|nullable|file|mimes:png,jpg,jpeg,webp',
             'reading_practice_title'          => 'bail|string',
             'reading_practice'    => 'bail|string',
             'speaking_practice_title'          => 'bail|string',

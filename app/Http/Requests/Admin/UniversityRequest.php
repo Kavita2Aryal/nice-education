@@ -25,7 +25,7 @@ class UniversityRequest extends FormRequest
     {
         return [
             'logo'=> 'bail|nullable|file|max:2048|mimes:png,jpg,jpeg,webp',
-            'country_id'=>'required',
+            'country_id'=>'bail',
             'name' =>'required',
             'priority' => 'required',
             'status'   => 'bail|required|in:true,false,0,1',

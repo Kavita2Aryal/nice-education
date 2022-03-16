@@ -18,7 +18,6 @@ class CreateNewsCategoriesTable extends Migration
             $table->string('name');
             $table->string('slug')->unique();
             $table->string('image')->nullable();
-            $table->text('about')->nullable();
             $table->unsignedInteger('order')->default(99);
             $table->boolean('hide')->default(0);
             $table->timestamps();

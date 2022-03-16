@@ -49,7 +49,7 @@ class WebsiteController extends CommonController
 
     public function contactUs()
     {
-        $this->website['contact_us'] = Company::select('title_for_contact_us','description_for_contact_us')->first();
+        $this->website['contact_us'] = Page::find(4);
         return view("website.contact_us", $this->website);
     }
 

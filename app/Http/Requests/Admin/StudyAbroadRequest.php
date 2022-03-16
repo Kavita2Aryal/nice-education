@@ -24,7 +24,7 @@ class StudyAbroadRequest extends FormRequest
     public function rules()
     {
         return [
-            'education_system_image'        => 'bail|nullable|file|max:2048|mimes:png,jpg,jpeg,webp',
+            'education_system_image'        => 'bail|nullable|file',
             'country_name'                  =>'required',
             'slug'                          =>'required',
             'why_message'                   =>'required',
@@ -40,8 +40,8 @@ class StudyAbroadRequest extends FormRequest
 
             'intake_title'                  => 'required|string',
             'intake_description'            => 'required|string',
-            'first_intake_image'            => 'bail|nullable|file|max:2048|mimes:png,jpg,jpeg,webp',
-            'second_intake_image'           => 'bail|nullable|file|max:2048|mimes:png,jpg,jpeg,webp',
+            'first_intake_image'            => 'bail|nullable|file',
+            'second_intake_image'           => 'bail|nullable|file',
             'first_intake_session'          => 'required|string',
             'second_intake_session'         => 'required|string',
 
@@ -49,7 +49,7 @@ class StudyAbroadRequest extends FormRequest
             'work_visa_section_title'        => 'required|string',
             'work_visa_section_description'  => 'required|string',
             'yellow_section_content'         => 'bail|nullable',
-            'image_below_yellow_section'     => 'bail|nullable|file|max:2048|mimes:png,jpg,jpeg,webp',
+            'image_below_yellow_section'     => 'bail|nullable|file',
             'title_below_yellow_section'     => 'bail|nullable',
             'description_below_yellow_section'   => 'bail|nullable',
 

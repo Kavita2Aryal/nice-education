@@ -24,10 +24,11 @@ class PageRequest extends FormRequest
     public function rules()
     {
         return [
-            'image'=> 'bail|nullable|file|max:2048|mimes:png,jpg,jpeg,webp',
-            'title'=>'required',
-            'slug' =>'required',
-            'description' =>'required'
+            'image'         => 'bail|nullable|file|max:2048|mimes:png,jpg,jpeg,webp',
+            'title'         =>'required',
+            'section_title' =>'required',
+            'slug'          =>'required',
+            'description'   =>'required'
         ];
     }
 }

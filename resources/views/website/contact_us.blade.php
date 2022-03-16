@@ -24,10 +24,10 @@
         <section class="appoint">
             <div class="container">
                 <h2 class="title--section text-center mb-4 mb-xl-5">
-                    <span>{{$contact_us->title_for_contact_us}}</span>
+                    <span>{{$contact_us->section_title}}</span>
                     <span class="title--indicator indi-center"></span>
                 </h2>
-                {!! $contact_us->description_for_contact_us !!}
+                {!! $contact_us->description!!}
             </div>
         </section>
 

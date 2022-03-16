@@ -18,6 +18,7 @@ class CreatePagesTable extends Migration
             $table->string('image', 300)->nullable();
             $table->string('title',200);
             $table->string('slug',200);
+            $table->string('section_title');
             $table->longText('description');
             $table->boolean('status')->default(0);
             $table->timestamps();

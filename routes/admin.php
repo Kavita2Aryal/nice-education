@@ -13,7 +13,8 @@ use App\Http\Controllers\Admin\DocumentRequiredController;
 use App\Http\Controllers\Admin\StudyAbroadController;
 use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\EnquiryController;
-use App\Http\Controllers\Admin\CalendarController;
+use App\Http\Controllers\Admin\NewsCategoryController;
+use App\Http\Controllers\Admin\NewsController;
 
 
 /*
@@ -62,6 +63,8 @@ Route::middleware('auth:admin')->group(function () {
     Route::resource('document-required',DocumentRequiredController::class);
     Route::resource('test-preparation',TestPreparationController::class);
     Route::resource('enquiry',EnquiryController::class);
+    Route::resource('news-category',NewsCategoryController::class);
+    Route::resource('news', NewsController::class);
 
     Route::post('faq-update/{id}', [AdminController::class,'faqUpdate'])->name('faqUpdate');
 
@@ -71,13 +74,6 @@ Route::middleware('auth:admin')->group(function () {
 
     Route::get('update-password',[AdminController::class,'password'])->name('password');
     Route::post('update-password',[AdminController::class,'updatePassword']);
-
-
-    // Routes for event calendar
-//    Route::get('ckeditor', [CalendarController::class, 'index']);
-//    Route::post('fullcalendar/create', [CalendarController::class, 'create']);
-//    Route::post('fullcalendar/update', [CalendarController::class, 'update']);
-//    Route::post('fullcalendar/delete', [CalendarController::class, 'destroy']);
 
 
 

@@ -48,7 +48,11 @@
                                                 <td><img src="{{asset('storage/images/university/logos/'.$university->logo)}}" alt=""></td>
                                                 <td>{{$university->name}}</td>
                                                 <td>
+                                                    @if($university->country_id != null)
                                                     {{$university->country->country_name}}
+                                                    @else
+                                                    <b> - </b>
+                                                    @endif
                                                 </td>
                                                 <td>
                                                     <a  class="btn btn-sm  btn-outline-success" href="{{route('university.edit',$university->id)}}" title="Edit" ><i class="mdi mdi-lead-pencil"></i></a>

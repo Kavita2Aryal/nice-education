@@ -15,7 +15,7 @@ class CreateNewsTable extends Migration
     {
         Schema::create('news', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('category_id');
+            $table->unsignedBigInteger('category_id')->nullable();
             $table->string('title');
             $table->string('slug')->unique();
             $table->longText('description');
@@ -23,7 +23,6 @@ class CreateNewsTable extends Migration
             $table->string('video_link')->nullable();
             $table->boolean('hide')->default(0);
             $table->timestamps();
-            $table->foreign('category_id')->references('id')->on('news_categories')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

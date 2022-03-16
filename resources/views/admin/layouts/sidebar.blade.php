@@ -39,9 +39,9 @@
                   <li class="nav-item {{ active_class(['admin/page']) }}">
                       <a class="nav-link" href="{{ route('page.index') }}">Manage Pages</a>
                   </li>
-                  <li class="nav-item {{ active_class(['admin/page/create']) }}">
-                      <a class="nav-link" href="{{ route('page.create') }}">Add Page</a>
-                  </li>
+{{--                  <li class="nav-item {{ active_class(['admin/page/create']) }}">--}}
+{{--                      <a class="nav-link" href="{{ route('page.create') }}">Add Page</a>--}}
+{{--                  </li>--}}
               </ul>
           </div>
       </li>
@@ -70,7 +70,7 @@
                   </li>
 
                   <li class="{{ \Illuminate\Support\Facades\Request::is('admin/service/create') ? 'nav-item active' : 'nav-item' }}">
-                      <a class="nav-link" href="{{ route('manageVisaAcceptanceContent') }}">Visa Service Content</a>
+                      <a class="nav-link" href="{{ route('manageVisaAcceptanceContent') }}">Visa Guidance(Yellow Section)</a>
                   </li>
               </ul>
           </div>
@@ -125,25 +125,29 @@
 
 
       <!--------------- NEWS & NOTICE ----------------------------------->
-{{--      <li class="nav-item {{ active_class(['basic-ui/*']) }}">--}}
-{{--          <a class="nav-link" data-toggle="collapse" href="#news" aria-expanded="{{ is_active_route(['basic-ui/*']) }}" aria-controls="basic-ui">--}}
+      <li class="nav-item {{ active_class(['admin/news-category*','admin/news*']) }}">
+          <a class="nav-link" data-toggle="collapse" href="#news" aria-expanded="{{ is_active_route(['basic-ui/*']) }}" aria-controls="basic-ui">
 
-{{--              <i class="icon-docs menu-icon"></i>--}}
-{{--              <span class="menu-title"> News/Notices</span>--}}
-{{--              <i class="menu-arrow"></i>--}}
-{{--          </a>--}}
-{{--          <div class="collapse {{ show_class(['basic-ui/*']) }}" id="news">--}}
-{{--              <ul class="nav flex-column sub-menu">--}}
-{{--                  <li class="nav-item {{ active_class(['basic-ui/accordions']) }}">--}}
-{{--                      <a class="nav-link" href="{{ url('/basic-ui/accordions') }}">Manage News/Notices</a>--}}
-{{--                  </li>--}}
+              <i class="icon-docs menu-icon"></i>
+              <span class="menu-title"> News/Notices</span>
+              <i class="menu-arrow"></i>
+          </a>
+          <div class="collapse {{ show_class(['admin/news-category*','admin/news*']) }}" id="news">
+              <ul class="nav flex-column sub-menu">
+                  <li class="nav-item {{ active_class(['admin/news-category*']) }}">
+                      <a class="nav-link" href="{{ route('news-category.index') }}">News Category</a>
+                  </li>
 
-{{--                  <li class="nav-item {{ active_class(['basic-ui/progress-bar']) }}">--}}
-{{--                      <a class="nav-link" href="{{ url('/basic-ui/progress-bar') }}">Add News/Notices</a>--}}
-{{--                  </li>--}}
-{{--              </ul>--}}
-{{--          </div>--}}
-{{--      </li>--}}
+                  <li class="nav-item {{ active_class(['admin/news']) }}">
+                      <a class="nav-link" href="{{ route('news.index') }}">Manage News/Notices</a>
+                  </li>
+
+                  <li class="nav-item {{ active_class(['admin/news/create']) }}">
+                      <a class="nav-link" href="{{ route('news.create') }}">Add News/Notices</a>
+                  </li>
+              </ul>
+          </div>
+      </li>
 
 
         <!----------------- GALLERY ---------------------------->
